@@ -219,8 +219,21 @@ new Date().toLocaleTimeString('en-IN')
 
 alert("Login Successful 🚀");
 
+/* Save Login Access */
+
+localStorage.setItem(
+"loggedIn",
+"true"
+);
+
+/* Open Main Page */
+
+setTimeout(() => {
+
 window.location.href =
-"https://gowindasamy.github.io/jee/";
+"https://gowindasamy.github.io/jee/index.html";
+
+},500);
 
 }
 
