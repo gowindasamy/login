@@ -204,10 +204,14 @@ await updateDoc(docRef,{
 loginHistory: arrayUnion({
 
 date:
-new Date().toLocaleDateString('en-GB'),
+String(new Date().getDate()).padStart(2,'0')
++ "/"
++ String(new Date().getMonth()+1).padStart(2,'0')
++ "/"
++ new Date().getFullYear(),
 
 time:
-new Date().toLocaleTimeString()
+new Date().toLocaleTimeString('en-IN')
 
 })
 
