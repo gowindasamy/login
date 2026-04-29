@@ -156,7 +156,8 @@ import {
 getFirestore,
 doc,
 getDoc,
-updateDoc
+updateDoc,
+arrayUnion
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -200,11 +201,15 @@ if(docSnap.data().password == password){
 
 await updateDoc(docRef,{
 
-lastLoginTime:
-new Date().toLocaleTimeString(),
+loginHistory: arrayUnion({
 
-lastLoginDate:
-new Date().toLocaleDateString()
+date:
+new Date().toLocaleDateString(),
+
+time:
+new Date().toLocaleTimeString()
+
+})
 
 });
 
