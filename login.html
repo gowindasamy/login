@@ -15,8 +15,6 @@ text-align:center;
 overflow:hidden;
 }
 
-/* Animated Background */
-
 .bg{
 position:fixed;
 top:0;
@@ -35,8 +33,6 @@ animation:bgmove 12s ease infinite;
 z-index:-2;
 }
 
-/* Matrix Background */
-
 #matrix{
 position:fixed;
 top:0;
@@ -46,13 +42,9 @@ height:100%;
 z-index:-1;
 }
 
-/* Login Box */
-
 .loginbox{
 margin-top:100px;
 }
-
-/* Title */
 
 h1{
 font-size:50px;
@@ -62,8 +54,6 @@ text-shadow:
 0 0 20px cyan,
 0 0 30px lime;
 }
-
-/* Inputs */
 
 input{
 padding:15px;
@@ -77,8 +67,6 @@ background:rgba(255,255,255,0.08);
 color:white;
 box-shadow:0 0 20px lime;
 }
-
-/* Button */
 
 button{
 padding:15px 30px;
@@ -100,8 +88,6 @@ transition:0.3s;
 button:hover{
 transform:scale(1.1);
 }
-
-/* Animations */
 
 @keyframes rainbow{
 
@@ -169,7 +155,8 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
 getFirestore,
 doc,
-getDoc
+getDoc,
+updateDoc
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -210,6 +197,16 @@ await getDoc(docRef);
 if(docSnap.exists()){
 
 if(docSnap.data().password == password){
+
+await updateDoc(docRef,{
+
+lastLoginTime:
+new Date().toLocaleTimeString(),
+
+lastLoginDate:
+new Date().toLocaleDateString()
+
+});
 
 alert("Login Successful 🚀");
 
