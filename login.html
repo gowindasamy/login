@@ -204,7 +204,7 @@ await updateDoc(docRef,{
 loginHistory: arrayUnion({
 
 date:
-new Date().toLocaleDateString(),
+new Date().toLocaleDateString('en-GB'),
 
 time:
 new Date().toLocaleTimeString()
