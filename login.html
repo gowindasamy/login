@@ -155,7 +155,9 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
 getFirestore,
 doc,
-getDoc
+getDoc,
+updateDoc,
+arrayUnion
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -196,6 +198,72 @@ await getDoc(docRef);
 if(docSnap.exists()){
 
 if(docSnap.data().password == password){
+
+if(docSnap.data().status == "locked"){
+
+alert("Account Locked ❌");
+
+return;
+
+}
+
+let count =
+docSnap.data().loginCount || 0;
+
+let limit =
+docSnap.data().loginLimit || 1;
+
+count++;
+
+if(count >= limit){
+
+await updateDoc(docRef,{
+
+loginCount: count,
+
+status:"locked",
+
+loginHistory: arrayUnion({
+
+date:
+String(new Date().getDate()).padStart(2,'0')
++ "/"
++ String(new Date().getMonth()+1).padStart(2,'0')
++ "/"
++ new Date().getFullYear(),
+
+time:
+new Date().toLocaleTimeString('en-IN')
+
+})
+
+});
+
+}
+
+else{
+
+await updateDoc(docRef,{
+
+loginCount: count,
+
+loginHistory: arrayUnion({
+
+date:
+String(new Date().getDate()).padStart(2,'0')
++ "/"
++ String(new Date().getMonth()+1).padStart(2,'0')
++ "/"
++ new Date().getFullYear(),
+
+time:
+new Date().toLocaleTimeString('en-IN')
+
+})
+
+});
+
+}
 
 alert("Login Successful 🚀");
 
