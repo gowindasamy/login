@@ -199,7 +199,17 @@ if(docSnap.exists()){
 
 if(docSnap.data().password == password){
 
-if(docSnap.data().status == "locked"){
+let count =
+docSnap.data().loginCount || 0;
+
+let limit =
+docSnap.data().loginLimit || 999999;
+
+/* Already Locked */
+
+if(
+docSnap.data().status == "locked"
+){
 
 alert("Account Locked ❌");
 
@@ -207,13 +217,11 @@ return;
 
 }
 
-let count =
-docSnap.data().loginCount || 0;
-
-let limit =
-docSnap.data().loginLimit || 1;
+/* Increase Login Count */
 
 count++;
+
+/* Auto Lock */
 
 if(count >= limit){
 
@@ -246,6 +254,8 @@ else{
 await updateDoc(docRef,{
 
 loginCount: count,
+
+status:"unlocked",
 
 loginHistory: arrayUnion({
 
