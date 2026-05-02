@@ -29,8 +29,6 @@ overflow:hidden;
 background:black;
 }
 
-/* Wave 1 */
-
 #wavebg::before{
 
 content:"";
@@ -52,8 +50,6 @@ filter:blur(60px);
 animation:waveMove 10s linear infinite;
 
 }
-
-/* Wave 2 */
 
 #wavebg::after{
 
@@ -396,24 +392,8 @@ return;
 
 }
 
-/* LOGIN HISTORY */
-
 const now =
 new Date();
-
-let loginPage = "Unknown";
-
-if(data.pageAccess == "jee"){
-
-loginPage = "JEE";
-
-}
-
-else if(data.pageAccess == "12th"){
-
-loginPage = "12TH";
-
-}
 
 const loginData = {
 
@@ -423,21 +403,9 @@ now.toLocaleDateString(),
 time:
 now.toLocaleTimeString(),
 
-page:
-loginPage
+page:"Unknown"
 
 };
-
-await updateDoc(userRef,{
-
-loginCount:count + 1,
-
-loginHistory:[
-...(data.loginHistory || []),
-loginData
-]
-
-});
 
 /* SUCCESS */
 
@@ -539,6 +507,8 @@ select.value.toUpperCase();
 
 await updateDoc(userRef,{
 
+loginCount:count + 1,
+
 loginHistory:[
 ...(data.loginHistory || []),
 loginData
@@ -547,20 +517,6 @@ loginData
 });
 
 if(select.value == "jee"){
-
-window.location.href =
-"https://gowindasamy.github.io/jee/?access=true";
-
-}
-
-else{
-
-window.location.href =
-"https://gowindasamy.github.io/12th/?access=true";
-
-}
-
-};
 
 window.location.href =
 "https://gowindasamy.github.io/jee/?access=true";
@@ -594,6 +550,19 @@ document.body.appendChild(popup);
 
 else if(access == "jee"){
 
+loginData.page = "JEE";
+
+await updateDoc(userRef,{
+
+loginCount:count + 1,
+
+loginHistory:[
+...(data.loginHistory || []),
+loginData
+]
+
+});
+
 window.location.href =
 "https://gowindasamy.github.io/jee/?access=true";
 
@@ -602,6 +571,19 @@ window.location.href =
 /* 12TH */
 
 else if(access == "12th"){
+
+loginData.page = "12TH";
+
+await updateDoc(userRef,{
+
+loginCount:count + 1,
+
+loginHistory:[
+...(data.loginHistory || []),
+loginData
+]
+
+});
 
 window.location.href =
 "https://gowindasamy.github.io/12th/?access=true";
