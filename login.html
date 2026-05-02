@@ -201,6 +201,33 @@ color:cyan;
 margin-top:20px;
 }
 
+/* SELECT */
+
+select{
+
+padding:15px;
+
+width:220px;
+
+margin-top:20px;
+
+font-size:18px;
+
+border-radius:10px;
+
+background:black;
+
+color:white;
+
+border:none;
+
+outline:none;
+
+box-shadow:
+0 0 15px cyan;
+
+}
+
 /* RAINBOW */
 
 @keyframes rainbow{
@@ -408,32 +435,115 @@ data.pageAccess;
 
 if(access == "both"){
 
-const choose =
-prompt(
+/* POPUP */
 
-"Choose Page 👇\n\njee\n12th"
+const popup =
+document.createElement("div");
 
-);
+popup.style.position = "fixed";
+popup.style.top = "0";
+popup.style.left = "0";
+popup.style.width = "100%";
+popup.style.height = "100%";
 
-if(choose == "jee"){
+popup.style.background =
+"rgba(0,0,0,0.85)";
+
+popup.style.display = "flex";
+
+popup.style.justifyContent =
+"center";
+
+popup.style.alignItems =
+"center";
+
+popup.style.zIndex = "9999";
+
+/* BOX */
+
+const box =
+document.createElement("div");
+
+box.style.background = "#000";
+
+box.style.padding = "25px";
+
+box.style.borderRadius = "15px";
+
+box.style.boxShadow =
+"0 0 25px cyan";
+
+box.style.textAlign = "center";
+
+box.style.width = "300px";
+
+/* TITLE */
+
+const title =
+document.createElement("h2");
+
+title.innerHTML =
+"🚀 Choose Page";
+
+title.style.color = "cyan";
+
+/* SELECT */
+
+const select =
+document.createElement("select");
+
+select.innerHTML = `
+
+<option value="jee">
+🔥 JEE
+</option>
+
+<option value="12th">
+📚 12TH
+</option>
+
+`;
+
+/* BUTTON */
+
+const btn =
+document.createElement("button");
+
+btn.innerHTML =
+"✅ OPEN";
+
+btn.style.marginTop = "20px";
+
+btn.onclick =
+function(){
+
+if(select.value == "jee"){
 
 window.location.href =
 "https://gowindasamy.github.io/jee/?access=true";
 
 }
 
-else if(choose == "12th"){
+else{
 
 window.location.href =
 "https://gowindasamy.github.io/12th/?access=true";
 
 }
 
-else{
+};
 
-alert("Invalid Choice ❌");
+/* APPEND */
 
-}
+box.appendChild(title);
+
+box.appendChild(select);
+
+box.appendChild(btn);
+
+popup.appendChild(box);
+
+document.body.appendChild(popup);
 
 }
 
