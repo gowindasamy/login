@@ -532,9 +532,35 @@ btn.innerHTML =
 btn.style.marginTop = "20px";
 
 btn.onclick =
-function(){
+async function(){
+
+loginData.page =
+select.value.toUpperCase();
+
+await updateDoc(userRef,{
+
+loginHistory:[
+...(data.loginHistory || []),
+loginData
+]
+
+});
 
 if(select.value == "jee"){
+
+window.location.href =
+"https://gowindasamy.github.io/jee/?access=true";
+
+}
+
+else{
+
+window.location.href =
+"https://gowindasamy.github.io/12th/?access=true";
+
+}
+
+};
 
 window.location.href =
 "https://gowindasamy.github.io/jee/?access=true";
