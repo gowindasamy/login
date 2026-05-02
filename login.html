@@ -73,7 +73,7 @@ animation:waveMove2 14s linear infinite;
 
 }
 
-/* ANIMATIONS */
+/* ANIMATION */
 
 @keyframes waveMove{
 
@@ -150,7 +150,7 @@ border:2px solid cyan;
 backdrop-filter:blur(6px);
 }
 
-/* INPUTS */
+/* INPUT */
 
 input{
 padding:15px;
@@ -392,6 +392,8 @@ return;
 
 }
 
+/* LOGIN DATA */
+
 const now =
 new Date();
 
@@ -416,11 +418,16 @@ alert("Login Success ✅");
 const access =
 data.pageAccess;
 
-/* BOTH ACCESS */
+/* CURRENT PAGE */
 
-if(access == "both"){
+const currentPage =
+new URLSearchParams(
+window.location.search
+).get("page");
 
-/* POPUP */
+/* BOTH ACCESS POPUP */
+
+function showChoosePopup(){
 
 const popup =
 document.createElement("div");
@@ -444,8 +451,6 @@ popup.style.alignItems =
 
 popup.style.zIndex = "9999";
 
-/* BOX */
-
 const box =
 document.createElement("div");
 
@@ -462,8 +467,6 @@ box.style.textAlign = "center";
 
 box.style.width = "300px";
 
-/* TITLE */
-
 const title =
 document.createElement("h2");
 
@@ -471,8 +474,6 @@ title.innerHTML =
 "🚀 Choose Page";
 
 title.style.color = "cyan";
-
-/* SELECT */
 
 const select =
 document.createElement("select");
@@ -488,8 +489,6 @@ select.innerHTML = `
 </option>
 
 `;
-
-/* BUTTON */
 
 const btn =
 document.createElement("button");
@@ -532,8 +531,6 @@ window.location.href =
 
 };
 
-/* APPEND */
-
 box.appendChild(title);
 
 box.appendChild(select);
@@ -546,9 +543,15 @@ document.body.appendChild(popup);
 
 }
 
-/* JEE */
+/* JEE PAGE LOGIN */
 
-else if(access == "jee"){
+if(currentPage == "jee"){
+
+if(
+access == "jee"
+||
+access == "both"
+){
 
 loginData.page = "JEE";
 
@@ -568,7 +571,77 @@ window.location.href =
 
 }
 
-/* 12TH */
+else{
+
+alert(
+"12TH User Cannot Open JEE ❌"
+);
+
+}
+
+}
+
+/* 12TH PAGE LOGIN */
+
+else if(currentPage == "12th"){
+
+if(
+access == "12th"
+||
+access == "both"
+){
+
+loginData.page = "12TH";
+
+await updateDoc(userRef,{
+
+loginCount:count + 1,
+
+loginHistory:[
+...(data.loginHistory || []),
+loginData
+]
+
+});
+
+window.location.href =
+"https://gowindasamy.github.io/12th/?access=true";
+
+}
+
+else{
+
+alert(
+"JEE User Cannot Open 12TH ❌"
+);
+
+}
+
+}
+
+/* CENTRAL LOGIN */
+
+else{
+
+if(access == "jee"){
+
+loginData.page = "JEE";
+
+await updateDoc(userRef,{
+
+loginCount:count + 1,
+
+loginHistory:[
+...(data.loginHistory || []),
+loginData
+]
+
+});
+
+window.location.href =
+"https://gowindasamy.github.io/jee/?access=true";
+
+}
 
 else if(access == "12th"){
 
@@ -590,11 +663,11 @@ window.location.href =
 
 }
 
-/* INVALID */
+else if(access == "both"){
 
-else{
+showChoosePopup();
 
-alert("Invalid Page ❌");
+}
 
 }
 
