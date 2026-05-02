@@ -1,104 +1,233 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>🔐 Login</title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>🔥 12th 500+ Marks Tips 🔥</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 
-body{
+*{
 margin:0;
 padding:0;
-background:black;
-color:white;
-font-family:Arial;
-text-align:center;
-overflow:hidden;
+box-sizing:border-box;
 }
 
+body{
+font-family:'Poppins',sans-serif;
+background:#000;
+color:white;
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
 .bg{
+
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:linear-gradient(
-45deg,
+
+background:
+linear-gradient(
+135deg,
 #000000,
-#001a00,
+#001f1f,
 #002244,
 #000000
 );
+
 background-size:400% 400%;
-animation:bgmove 12s ease infinite;
+
+animation:bgmove 10s ease infinite;
+
 z-index:-2;
+
 }
 
-#matrix{
+/* GLOW */
+
+.glow{
+
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+width:500px;
+height:500px;
+background:cyan;
+filter:blur(160px);
+opacity:0.15;
+border-radius:50%;
+top:-100px;
+left:-100px;
+animation:moveGlow 8s linear infinite alternate;
 z-index:-1;
+
 }
 
-.loginbox{
-margin-top:100px;
+/* CONTAINER */
+
+.container{
+
+width:95%;
+max-width:1200px;
+
+margin:auto;
+
+padding:40px 20px 100px;
+
 }
 
-h1{
-font-size:50px;
-animation:rainbow 4s linear infinite;
-text-shadow:
-0 0 10px red,
-0 0 20px cyan,
-0 0 30px lime;
-}
+/* TITLE */
 
-input{
-padding:15px;
-margin:12px;
-width:280px;
-font-size:18px;
-border:none;
-border-radius:12px;
-outline:none;
-background:rgba(255,255,255,0.08);
-color:white;
-box-shadow:0 0 20px lime;
-}
+.title{
 
-button{
-padding:15px 30px;
-background:linear-gradient(
-45deg,
-lime,
-cyan
+font-size:65px;
+font-weight:900;
+text-align:center;
+
+line-height:1.2;
+
+background:
+linear-gradient(
+90deg,
+#00ffff,
+#00ff99,
+#ffffff,
+#00ffff
 );
-border:none;
-border-radius:12px;
-font-size:20px;
-cursor:pointer;
-font-weight:bold;
-color:black;
-box-shadow:0 0 25px cyan;
-transition:0.3s;
-}
 
-button:hover{
-transform:scale(1.1);
-}
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 
-@keyframes rainbow{
+text-shadow:
+0 0 20px cyan,
+0 0 40px lime;
 
-0%{color:red;}
-20%{color:orange;}
-40%{color:yellow;}
-60%{color:lime;}
-80%{color:cyan;}
-100%{color:magenta;}
+animation:glowText 3s infinite alternate;
+
+margin-top:30px;
+margin-bottom:20px;
 
 }
+
+/* SUBTITLE */
+
+.subtitle{
+
+text-align:center;
+font-size:28px;
+font-weight:600;
+color:#00ffff;
+
+margin-bottom:50px;
+
+text-shadow:
+0 0 10px cyan;
+
+}
+
+/* CARD */
+
+.card{
+
+background:
+rgba(255,255,255,0.06);
+
+border:
+1px solid rgba(0,255,255,0.3);
+
+border-radius:25px;
+
+padding:35px;
+
+margin-bottom:35px;
+
+backdrop-filter:blur(10px);
+
+box-shadow:
+0 0 30px rgba(0,255,255,0.2);
+
+transition:0.4s;
+
+}
+
+.card:hover{
+
+transform:
+translateY(-5px)
+scale(1.01);
+
+box-shadow:
+0 0 45px rgba(0,255,255,0.5);
+
+}
+
+/* HEADING */
+
+.card h2{
+
+font-size:38px;
+margin-bottom:20px;
+
+color:#00ffcc;
+
+text-shadow:
+0 0 10px cyan;
+
+}
+
+/* TEXT */
+
+.card p{
+
+font-size:22px;
+line-height:2;
+font-weight:400;
+
+color:#f1f1f1;
+
+}
+
+/* POINTS */
+
+.points{
+
+margin-top:20px;
+padding-left:20px;
+
+}
+
+.points li{
+
+font-size:22px;
+margin-bottom:18px;
+line-height:1.8;
+
+}
+
+/* FOOTER */
+
+.footer{
+
+text-align:center;
+margin-top:60px;
+
+font-size:22px;
+color:#00ffff;
+
+text-shadow:
+0 0 10px cyan;
+
+}
+
+/* ANIMATIONS */
 
 @keyframes bgmove{
 
@@ -116,272 +245,357 @@ background-position:0% 50%;
 
 }
 
+@keyframes glowText{
+
+from{
+
+filter:drop-shadow(0 0 10px cyan);
+
+}
+
+to{
+
+filter:drop-shadow(0 0 25px lime);
+
+}
+
+}
+
+@keyframes moveGlow{
+
+0%{
+
+transform:
+translate(0,0);
+
+}
+
+100%{
+
+transform:
+translate(400px,300px);
+
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.title{
+
+font-size:40px;
+
+}
+
+.subtitle{
+
+font-size:20px;
+
+}
+
+.card{
+
+padding:22px;
+
+}
+
+.card h2{
+
+font-size:28px;
+
+}
+
+.card p,
+.points li{
+
+font-size:18px;
+line-height:1.8;
+
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
+<script>
+
+/* LOGIN REDIRECT */
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+if(
+params.get("access")
+!= "true"
+){
+
+window.location.href =
+"https://gowindasamy.github.io/login/login.html?page=12th";
+
+}
+
+</script>
+
 <div class="bg"></div>
 
-<canvas id="matrix"></canvas>
+<div class="glow"></div>
 
-<div class="loginbox">
+<div class="container">
 
-<h1>🔐 LOGIN 🔐</h1>
+<h1 class="title">
 
-<input type="text"
-id="username"
-placeholder="Enter Username">
+🔥 12th 500+ 🔥
 
 <br>
 
-<input type="password"
-id="password"
-placeholder="Enter Password">
+Marks Tips & Tricks
 
-<br>
+</h1>
 
-<button onclick="login()">
-🚀 LOGIN
-</button>
+<p class="subtitle">
+
+Tamil • English • Maths • Physics • Chemistry • Computer Science 🚀
+
+</p>
+
+<!-- CARD 1 -->
+
+<div class="card">
+
+<h2>
+
+🎯 500+ Score Strategy
+
+</h2>
+
+<p>
+
+12ஆம் வகுப்பு பொதுத்தேர்வில்
+500+ மதிப்பெண்கள் பெற
+தினமும் consistency-ஆக படிப்பது,
+NCERT மற்றும் State Board books-ஐ
+முழுமையாகப் படிப்பது,
+மற்றும் revision செய்வது மிகவும் முக்கியம்.
+
+</p>
 
 </div>
 
-<script type="module">
+<!-- CARD 2 -->
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+<div class="card">
 
-import {
-getFirestore,
-doc,
-getDoc,
-updateDoc,
-arrayUnion
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+<h2>
 
-const firebaseConfig = {
+📚 Daily Study Routine
 
-apiKey: "AIzaSyAV9WmHR_cY01i3UMLpwlbymjjz_sQT_80",
+</h2>
 
-authDomain: "tngslogin.firebaseapp.com",
+<ul class="points">
 
-projectId: "tngslogin",
+<li>
+⏰ தினமும் 10 மணி நேரம் focus study
+</li>
 
-storageBucket: "tngslogin.firebasestorage.app",
+<li>
+📖 Daily revision compulsory
+</li>
 
-messagingSenderId: "552680193680",
+<li>
+🌅 Early morning study concentration அதிகரிக்கும்
+</li>
 
-appId: "1:552680193680:web:54db58e0e418a2b63aa215"
+<li>
+📝 Notes maintain செய்யவும்
+</li>
 
-};
+<li>
+🔥 Weekly test practice செய்யவும்
+</li>
 
-const app = initializeApp(firebaseConfig);
+</ul>
 
-const db = getFirestore(app);
+</div>
 
-window.login = async function(){
+<!-- CARD 3 -->
 
-let username =
-document.getElementById("username").value;
+<div class="card">
 
-let password =
-document.getElementById("password").value;
+<h2>
 
-const docRef =
-doc(db,"users",username);
+📐 Maths Tips
 
-const docSnap =
-await getDoc(docRef);
+</h2>
 
-if(docSnap.exists()){
+<ul class="points">
 
-if(docSnap.data().password == password){
+<li>
+📌 Formulas daily revise செய்யவும்
+</li>
 
-let count =
-docSnap.data().loginCount || 0;
+<li>
+🧠 Step writing practice முக்கியம்
+</li>
 
-let limit =
-docSnap.data().loginLimit || 999999;
+<li>
+📄 Previous year sums solve செய்யவும்
+</li>
 
-/* Already Locked */
+<li>
+⚡ Shortcut methods practice செய்யவும்
+</li>
 
-if(
-docSnap.data().status == "locked"
-){
+</ul>
 
-alert("Account Locked ❌");
+</div>
 
-return;
+<!-- CARD 4 -->
 
-}
+<div class="card">
 
-/* Increase Login Count */
+<h2>
 
-count++;
+⚗ Physics & Chemistry Tips
 
-/* Auto Lock */
+</h2>
 
-if(count >= limit){
+<ul class="points">
 
-await updateDoc(docRef,{
+<li>
+🔬 Derivations important
+</li>
 
-loginCount: count,
+<li>
+⚡ Numerical problems daily practice
+</li>
 
-status:"locked",
+<li>
+🧪 Chemical equations மனப்பாடம் செய்யவும்
+</li>
 
-loginHistory: arrayUnion({
+<li>
+📖 One-word & definitions revise செய்யவும்
+</li>
 
-date:
-String(new Date().getDate()).padStart(2,'0')
-+ "/"
-+ String(new Date().getMonth()+1).padStart(2,'0')
-+ "/"
-+ new Date().getFullYear(),
+</ul>
 
-time:
-new Date().toLocaleTimeString('en-IN')
+</div>
 
-})
+<!-- CARD 5 -->
 
-});
+<div class="card">
 
-}
+<h2>
 
-else{
+💻 Computer Science Tips
 
-await updateDoc(docRef,{
+</h2>
 
-loginCount: count,
+<ul class="points">
 
-status:"unlocked",
+<li>
+⌨ Programs writing practice செய்யவும்
+</li>
 
-loginHistory: arrayUnion({
+<li>
+📘 Syntax mistakes avoid செய்யவும்
+</li>
 
-date:
-String(new Date().getDate()).padStart(2,'0')
-+ "/"
-+ String(new Date().getMonth()+1).padStart(2,'0')
-+ "/"
-+ new Date().getFullYear(),
+<li>
+🧠 Definitions & functions memorize செய்யவும்
+</li>
 
-time:
-new Date().toLocaleTimeString('en-IN')
+<li>
+📄 Book back questions complete செய்யவும்
+</li>
 
-})
+</ul>
 
-});
+</div>
 
-}
+<!-- CARD 6 -->
 
-alert("Login Successful 🚀");
+<div class="card">
 
-window.location.href =
-"https://gowindasamy.github.io/jee/index.html?access=true";
+<h2>
 
-}
+📝 Tamil & English Tips
 
-else{
+</h2>
 
-alert("Wrong Password ❌");
+<ul class="points">
 
-}
+<li>
+✍ Handwriting neat ஆக இருக்க வேண்டும்
+</li>
 
-}
+<li>
+📚 Grammar daily practice செய்யவும்
+</li>
 
-else{
+<li>
+📝 Long answers எழுதிப் பயிற்சி செய்யவும்
+</li>
 
-alert("User Not Found ❌");
+<li>
+🔥 Quote & poem lines memorize செய்யவும்
+</li>
 
-}
+</ul>
 
-}
+</div>
 
-</script>
+<!-- CARD 7 -->
 
-<script>
+<div class="card">
 
-const canvas =
-document.getElementById("matrix");
+<h2>
 
-const ctx =
-canvas.getContext("2d");
+💪 Mindset & Discipline
 
-canvas.width =
-window.innerWidth;
+</h2>
 
-canvas.height =
-window.innerHeight;
+<ul class="points">
 
-const letters =
-"01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&";
+<li>
+🚫 Social media distraction avoid செய்யவும்
+</li>
 
-const fontSize = 14;
+<li>
+🔥 Consistency maintain செய்யவும்
+</li>
 
-const columns =
-canvas.width / fontSize;
+<li>
+😴 Proper sleep & healthy food அவசியம்
+</li>
 
-const drops = [];
+<li>
+👑 Self confidence தான் success secret
+</li>
 
-for(let x = 0; x < columns; x++){
+</ul>
 
-drops[x] = 1;
+</div>
 
-}
+<div class="footer">
 
-function draw(){
+👑 Created By Gowindasamy
 
-ctx.fillStyle =
-"rgba(0,0,0,0.05)";
+<br><br>
 
-ctx.fillRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
+🔥 Study Hard • Score 500+ 🔥
 
-ctx.fillStyle = "#00ff99";
+</div>
 
-ctx.font =
-fontSize + "px monospace";
-
-for(let i = 0; i < drops.length; i++){
-
-const text =
-letters.charAt(
-Math.floor(
-Math.random()
-* letters.length
-)
-);
-
-ctx.fillText(
-text,
-i * fontSize,
-drops[i] * fontSize
-);
-
-if(
-drops[i] * fontSize
-> canvas.height
-&& Math.random() > 0.975
-){
-
-drops[i] = 0;
-
-}
-
-drops[i]++;
-
-}
-
-}
-
-setInterval(draw,33);
-
-</script>
+</div>
 
 </body>
 </html>
