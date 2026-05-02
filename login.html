@@ -401,13 +401,30 @@ return;
 const now =
 new Date();
 
+let loginPage = "Unknown";
+
+if(data.pageAccess == "jee"){
+
+loginPage = "JEE";
+
+}
+
+else if(data.pageAccess == "12th"){
+
+loginPage = "12TH";
+
+}
+
 const loginData = {
 
 date:
 now.toLocaleDateString(),
 
 time:
-now.toLocaleTimeString()
+now.toLocaleTimeString(),
+
+page:
+loginPage
 
 };
 
