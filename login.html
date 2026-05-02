@@ -77,7 +77,7 @@ animation:waveMove2 14s linear infinite;
 
 }
 
-/* Animations */
+/* ANIMATIONS */
 
 @keyframes waveMove{
 
@@ -395,61 +395,34 @@ loginData
 
 });
 
-/* PAGE */
-
-const page =
-new URLSearchParams(
-window.location.search
-).get("page");
-
-/* ACCESS CHECK */
-
-if(
-page == "jee"
-&&
-data.pageAccess != "jee"
-&&
-data.pageAccess != "both"
-){
-
-alert(
-"JEE Access Denied ❌"
-);
-
-return;
-
-}
-
-if(
-page == "12th"
-&&
-data.pageAccess != "12th"
-&&
-data.pageAccess != "both"
-){
-
-alert(
-"12th Access Denied ❌"
-);
-
-return;
-
-}
-
 /* SUCCESS */
 
 alert("Login Success ✅");
 
-/* REDIRECT */
+/* ACCESS */
 
-if(page == "jee"){
+const access =
+data.pageAccess;
+
+/* BOTH ACCESS */
+
+if(access == "both"){
+
+const choose =
+prompt(
+
+"Choose Page 👇\n\njee\n12th"
+
+);
+
+if(choose == "jee"){
 
 window.location.href =
 "https://gowindasamy.github.io/jee/?access=true";
 
 }
 
-else if(page == "12th"){
+else if(choose == "12th"){
 
 window.location.href =
 "https://gowindasamy.github.io/12th/?access=true";
@@ -458,9 +431,35 @@ window.location.href =
 
 else{
 
-alert(
-"Invalid Page ❌"
-);
+alert("Invalid Choice ❌");
+
+}
+
+}
+
+/* JEE */
+
+else if(access == "jee"){
+
+window.location.href =
+"https://gowindasamy.github.io/jee/?access=true";
+
+}
+
+/* 12TH */
+
+else if(access == "12th"){
+
+window.location.href =
+"https://gowindasamy.github.io/12th/?access=true";
+
+}
+
+/* INVALID */
+
+else{
+
+alert("Invalid Page ❌");
 
 }
 
