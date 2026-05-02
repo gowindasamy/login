@@ -4,269 +4,216 @@
 
 <title>🔥 LOGIN PAGE 🔥</title>
 
-<meta charset="UTF-8">
-
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
 <style>
 
-*{
+body{
 margin:0;
 padding:0;
-box-sizing:border-box;
-}
-
-body{
-
 background:black;
-font-family:Arial,sans-serif;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
 color:white;
-
+font-family:Arial;
+text-align:center;
+overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* DIGITAL WAVE BACKGROUND */
 
-.bg{
-
+#wavebg{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-
-background:
-linear-gradient(
-135deg,
-#000000,
-#001a00,
-#002244,
-#000000
-);
-
-background-size:400% 400%;
-
-animation:bgmove 10s ease infinite;
-
-z-index:-2;
-
-}
-
-/* GLOW */
-
-.glow{
-
-position:fixed;
-
-width:400px;
-height:400px;
-
-background:cyan;
-
-border-radius:50%;
-
-filter:blur(150px);
-
-opacity:0.15;
-
-top:-100px;
-left:-100px;
-
-animation:moveGlow 8s infinite alternate;
-
 z-index:-1;
+overflow:hidden;
+background:black;
+}
+
+/* Wave 1 */
+
+#wavebg::before{
+
+content:"";
+
+position:absolute;
+top:20%;
+left:-50%;
+
+width:200%;
+height:300px;
+
+background:
+rgba(0,255,255,0.15);
+
+border-radius:45%;
+
+filter:blur(60px);
+
+animation:waveMove 10s linear infinite;
 
 }
 
-/* LOGIN BOX */
+/* Wave 2 */
 
-.loginbox{
+#wavebg::after{
 
-width:90%;
-max-width:420px;
+content:"";
 
-padding:40px;
+position:absolute;
+bottom:10%;
+left:-50%;
+
+width:200%;
+height:250px;
 
 background:
-rgba(255,255,255,0.06);
+rgba(0,255,0,0.12);
 
-border:
-1px solid rgba(0,255,255,0.3);
+border-radius:40%;
 
-border-radius:25px;
+filter:blur(70px);
 
-backdrop-filter:blur(10px);
+animation:waveMove2 14s linear infinite;
 
-box-shadow:
-0 0 30px rgba(0,255,255,0.3);
+}
 
-text-align:center;
+/* Animations */
+
+@keyframes waveMove{
+
+0%{
+transform:
+translateX(0)
+translateY(0)
+rotate(0deg);
+}
+
+50%{
+transform:
+translateX(10%)
+translateY(20px)
+rotate(2deg);
+}
+
+100%{
+transform:
+translateX(0)
+translateY(0)
+rotate(0deg);
+}
+
+}
+
+@keyframes waveMove2{
+
+0%{
+transform:
+translateX(0)
+translateY(0)
+rotate(0deg);
+}
+
+50%{
+transform:
+translateX(-10%)
+translateY(-20px)
+rotate(-2deg);
+}
+
+100%{
+transform:
+translateX(0)
+translateY(0)
+rotate(0deg);
+}
 
 }
 
 /* TITLE */
 
 h1{
-
-font-size:45px;
-
-margin-bottom:30px;
-
-background:
-linear-gradient(
-90deg,
-cyan,
-lime,
-white
-);
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
+margin-top:80px;
+font-size:55px;
+animation:rainbow 4s linear infinite;
 text-shadow:
-0 0 15px cyan;
+0 0 10px red,
+0 0 20px cyan,
+0 0 30px lime;
+}
 
+/* LOGIN BOX */
+
+.loginbox{
+background:rgba(0,0,0,0.75);
+width:340px;
+margin:40px auto;
+padding:25px;
+border-radius:18px;
+box-shadow:0 0 25px cyan;
+border:2px solid cyan;
+backdrop-filter:blur(6px);
 }
 
 /* INPUTS */
 
 input{
-
-width:100%;
-
-padding:18px;
-
-margin:12px 0;
-
+padding:15px;
+margin:12px;
+width:260px;
 font-size:18px;
-
 border:none;
+border-radius:12px;
 outline:none;
-
-border-radius:15px;
-
-background:
-rgba(255,255,255,0.08);
-
+background:rgba(255,255,255,0.08);
 color:white;
-
-box-shadow:
-0 0 20px cyan;
-
+box-shadow:0 0 20px cyan;
 }
 
 /* BUTTON */
 
 button{
-
-width:100%;
-
-padding:18px;
-
-margin-top:20px;
-
-font-size:20px;
-
-font-weight:bold;
-
-border:none;
-
-border-radius:15px;
-
-cursor:pointer;
-
-background:
-linear-gradient(
+padding:15px 30px;
+background:linear-gradient(
 45deg,
 lime,
 cyan
 );
-
+border:none;
+border-radius:12px;
+font-size:18px;
+cursor:pointer;
+font-weight:bold;
 color:black;
-
-box-shadow:
-0 0 25px cyan;
-
+box-shadow:0 0 25px cyan;
 transition:0.3s;
-
+margin:10px;
+width:260px;
 }
 
 button:hover{
-
-transform:scale(1.03);
-
-box-shadow:
-0 0 35px lime;
-
+transform:scale(1.05);
+box-shadow:0 0 35px lime;
 }
 
-/* TEXT */
-
-.info{
-
-margin-top:20px;
-
+p{
 font-size:18px;
-
-color:#00ffff;
-
-text-shadow:
-0 0 10px cyan;
-
+color:cyan;
+margin-top:20px;
 }
 
-/* ANIMATIONS */
+/* RAINBOW */
 
-@keyframes bgmove{
+@keyframes rainbow{
 
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
-
-}
-
-@keyframes moveGlow{
-
-0%{
-transform:
-translate(0,0);
-}
-
-100%{
-transform:
-translate(300px,250px);
-}
-
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-h1{
-
-font-size:35px;
-
-}
-
-.loginbox{
-
-padding:30px 20px;
-
-}
+0%{color:red;}
+20%{color:orange;}
+40%{color:yellow;}
+60%{color:lime;}
+80%{color:cyan;}
+100%{color:magenta;}
 
 }
 
@@ -276,38 +223,34 @@ padding:30px 20px;
 
 <body>
 
-<div class="bg"></div>
-
-<div class="glow"></div>
-
-<div class="loginbox">
+<div id="wavebg"></div>
 
 <h1>
-
-🔥 LOGIN 🔥
-
+🔥 LOGIN PAGE 🔥
 </h1>
+
+<div class="loginbox">
 
 <input
 type="text"
 id="username"
 placeholder="Enter Username">
 
+<br>
+
 <input
 type="password"
 id="password"
 placeholder="Enter Password">
 
+<br>
+
 <button onclick="login()">
-
 🚀 LOGIN
-
 </button>
 
-<p class="info">
-
-JEE • 12th Central Login System
-
+<p>
+JEE • 12th Central Login
 </p>
 
 </div>
@@ -368,9 +311,9 @@ let password =
 document.getElementById("password").value;
 
 if(
-username.trim()==""
+username.trim() == ""
 ||
-password.trim()==""
+password.trim() == ""
 ){
 
 alert(
@@ -429,48 +372,7 @@ return;
 
 }
 
-/* PAGE ACCESS */
-
-const page =
-new URLSearchParams(
-window.location.search
-).get("page");
-
-/* ACCESS CHECK */
-
-if(
-page=="jee"
-&&
-data.pageAccess!="jee"
-&&
-data.pageAccess!="both"
-){
-
-alert(
-"JEE Access Denied ❌"
-);
-
-return;
-
-}
-
-if(
-page=="12th"
-&&
-data.pageAccess!="12th"
-&&
-data.pageAccess!="both"
-){
-
-alert(
-"12th Access Denied ❌"
-);
-
-return;
-
-}
-
-/* UPDATE LOGIN */
+/* LOGIN HISTORY */
 
 const now =
 new Date();
@@ -487,7 +389,7 @@ now.toLocaleTimeString()
 
 await updateDoc(userRef,{
 
-loginCount:count+1,
+loginCount:count + 1,
 
 loginHistory:[
 ...(data.loginHistory || []),
@@ -496,20 +398,61 @@ loginData
 
 });
 
+/* PAGE */
+
+const page =
+new URLSearchParams(
+window.location.search
+).get("page");
+
+/* ACCESS CHECK */
+
+if(
+page == "jee"
+&&
+data.pageAccess != "jee"
+&&
+data.pageAccess != "both"
+){
+
+alert(
+"JEE Access Denied ❌"
+);
+
+return;
+
+}
+
+if(
+page == "12th"
+&&
+data.pageAccess != "12th"
+&&
+data.pageAccess != "both"
+){
+
+alert(
+"12th Access Denied ❌"
+);
+
+return;
+
+}
+
 /* SUCCESS */
 
 alert("Login Success ✅");
 
 /* REDIRECT */
 
-if(page=="jee"){
+if(page == "jee"){
 
 window.location.href =
 "https://gowindasamy.github.io/jee/?access=true";
 
 }
 
-else if(page=="12th"){
+else if(page == "12th"){
 
 window.location.href =
 "https://gowindasamy.github.io/12th/?access=true";
@@ -518,30 +461,9 @@ window.location.href =
 
 else{
 
-const choose =
-prompt(
-"Open:\njee\n12th"
+alert(
+"Invalid Page ❌"
 );
-
-if(choose=="jee"){
-
-window.location.href =
-"https://gowindasamy.github.io/jee/?access=true";
-
-}
-
-else if(choose=="12th"){
-
-window.location.href =
-"https://gowindasamy.github.io/12th/?access=true";
-
-}
-
-else{
-
-alert("Invalid Option ❌");
-
-}
 
 }
 
