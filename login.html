@@ -16,8 +16,6 @@ text-align:center;
 overflow-x:hidden;
 }
 
-/* DIGITAL WAVE BACKGROUND */
-
 #wavebg{
 position:fixed;
 top:0;
@@ -73,8 +71,6 @@ animation:waveMove2 14s linear infinite;
 
 }
 
-/* ANIMATION */
-
 @keyframes waveMove{
 
 0%{
@@ -125,8 +121,6 @@ rotate(0deg);
 
 }
 
-/* TITLE */
-
 h1{
 margin-top:80px;
 font-size:55px;
@@ -136,8 +130,6 @@ text-shadow:
 0 0 20px cyan,
 0 0 30px lime;
 }
-
-/* LOGIN BOX */
 
 .loginbox{
 background:rgba(0,0,0,0.75);
@@ -149,8 +141,6 @@ box-shadow:0 0 25px cyan;
 border:2px solid cyan;
 backdrop-filter:blur(6px);
 }
-
-/* INPUT */
 
 input{
 padding:15px;
@@ -164,8 +154,6 @@ background:rgba(255,255,255,0.08);
 color:white;
 box-shadow:0 0 20px cyan;
 }
-
-/* BUTTON */
 
 button{
 padding:15px 30px;
@@ -197,8 +185,6 @@ color:cyan;
 margin-top:20px;
 }
 
-/* SELECT */
-
 select{
 
 padding:15px;
@@ -223,8 +209,6 @@ box-shadow:
 0 0 15px cyan;
 
 }
-
-/* RAINBOW */
 
 @keyframes rainbow{
 
@@ -409,10 +393,6 @@ page:"Unknown"
 
 };
 
-/* SUCCESS */
-
-alert("Login Success ✅");
-
 /* ACCESS */
 
 const access =
@@ -515,6 +495,8 @@ loginData
 
 });
 
+alert("Login Success ✅");
+
 if(select.value == "jee"){
 
 window.location.href =
@@ -566,6 +548,8 @@ loginData
 
 });
 
+alert("Login Success ✅");
+
 window.location.href =
 "https://gowindasamy.github.io/jee/?access=true";
 
@@ -573,9 +557,7 @@ window.location.href =
 
 else{
 
-alert(
-"ACCESS DENIED ❌"
-);
+alert("ACCESS DENIED ❌");
 
 }
 
@@ -604,6 +586,8 @@ loginData
 
 });
 
+alert("Login Success ✅");
+
 window.location.href =
 "https://gowindasamy.github.io/12th/?access=true";
 
@@ -611,9 +595,7 @@ window.location.href =
 
 else{
 
-alert(
-"ACCESS DENIED ❌"
-);
+alert("ACCESS DENIED ❌");
 
 }
 
@@ -638,6 +620,8 @@ loginData
 
 });
 
+alert("Login Success ✅");
+
 window.location.href =
 "https://gowindasamy.github.io/jee/?access=true";
 
@@ -657,6 +641,8 @@ loginData
 ]
 
 });
+
+alert("Login Success ✅");
 
 window.location.href =
 "https://gowindasamy.github.io/12th/?access=true";
