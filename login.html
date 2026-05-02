@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+
+<title>🔥 LOGIN PAGE 🔥</title>
 
 <meta charset="UTF-8">
 
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
-
-<title>🔥 12th 500+ Marks Tips 🔥</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,10 +18,16 @@ box-sizing:border-box;
 }
 
 body{
-font-family:'Poppins',sans-serif;
-background:#000;
+
+background:black;
+font-family:Arial,sans-serif;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 color:white;
-overflow-x:hidden;
+
 }
 
 /* BACKGROUND */
@@ -40,7 +44,7 @@ background:
 linear-gradient(
 135deg,
 #000000,
-#001f1f,
+#001a00,
 #002244,
 #000000
 );
@@ -58,84 +62,35 @@ z-index:-2;
 .glow{
 
 position:fixed;
-width:500px;
-height:500px;
+
+width:400px;
+height:400px;
+
 background:cyan;
-filter:blur(160px);
-opacity:0.15;
+
 border-radius:50%;
+
+filter:blur(150px);
+
+opacity:0.15;
+
 top:-100px;
 left:-100px;
-animation:moveGlow 8s linear infinite alternate;
+
+animation:moveGlow 8s infinite alternate;
+
 z-index:-1;
 
 }
 
-/* CONTAINER */
+/* LOGIN BOX */
 
-.container{
+.loginbox{
 
-width:95%;
-max-width:1200px;
+width:90%;
+max-width:420px;
 
-margin:auto;
-
-padding:40px 20px 100px;
-
-}
-
-/* TITLE */
-
-.title{
-
-font-size:65px;
-font-weight:900;
-text-align:center;
-
-line-height:1.2;
-
-background:
-linear-gradient(
-90deg,
-#00ffff,
-#00ff99,
-#ffffff,
-#00ffff
-);
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-text-shadow:
-0 0 20px cyan,
-0 0 40px lime;
-
-animation:glowText 3s infinite alternate;
-
-margin-top:30px;
-margin-bottom:20px;
-
-}
-
-/* SUBTITLE */
-
-.subtitle{
-
-text-align:center;
-font-size:28px;
-font-weight:600;
-color:#00ffff;
-
-margin-bottom:50px;
-
-text-shadow:
-0 0 10px cyan;
-
-}
-
-/* CARD */
-
-.card{
+padding:40px;
 
 background:
 rgba(255,255,255,0.06);
@@ -145,81 +100,119 @@ border:
 
 border-radius:25px;
 
-padding:35px;
-
-margin-bottom:35px;
-
 backdrop-filter:blur(10px);
 
 box-shadow:
-0 0 30px rgba(0,255,255,0.2);
+0 0 30px rgba(0,255,255,0.3);
 
-transition:0.4s;
-
-}
-
-.card:hover{
-
-transform:
-translateY(-5px)
-scale(1.01);
-
-box-shadow:
-0 0 45px rgba(0,255,255,0.5);
+text-align:center;
 
 }
 
-/* HEADING */
+/* TITLE */
 
-.card h2{
+h1{
 
-font-size:38px;
-margin-bottom:20px;
+font-size:45px;
 
-color:#00ffcc;
+margin-bottom:30px;
+
+background:
+linear-gradient(
+90deg,
+cyan,
+lime,
+white
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 
 text-shadow:
-0 0 10px cyan;
+0 0 15px cyan;
+
+}
+
+/* INPUTS */
+
+input{
+
+width:100%;
+
+padding:18px;
+
+margin:12px 0;
+
+font-size:18px;
+
+border:none;
+outline:none;
+
+border-radius:15px;
+
+background:
+rgba(255,255,255,0.08);
+
+color:white;
+
+box-shadow:
+0 0 20px cyan;
+
+}
+
+/* BUTTON */
+
+button{
+
+width:100%;
+
+padding:18px;
+
+margin-top:20px;
+
+font-size:20px;
+
+font-weight:bold;
+
+border:none;
+
+border-radius:15px;
+
+cursor:pointer;
+
+background:
+linear-gradient(
+45deg,
+lime,
+cyan
+);
+
+color:black;
+
+box-shadow:
+0 0 25px cyan;
+
+transition:0.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.03);
+
+box-shadow:
+0 0 35px lime;
 
 }
 
 /* TEXT */
 
-.card p{
-
-font-size:22px;
-line-height:2;
-font-weight:400;
-
-color:#f1f1f1;
-
-}
-
-/* POINTS */
-
-.points{
+.info{
 
 margin-top:20px;
-padding-left:20px;
 
-}
+font-size:18px;
 
-.points li{
-
-font-size:22px;
-margin-bottom:18px;
-line-height:1.8;
-
-}
-
-/* FOOTER */
-
-.footer{
-
-text-align:center;
-margin-top:60px;
-
-font-size:22px;
 color:#00ffff;
 
 text-shadow:
@@ -245,36 +238,16 @@ background-position:0% 50%;
 
 }
 
-@keyframes glowText{
-
-from{
-
-filter:drop-shadow(0 0 10px cyan);
-
-}
-
-to{
-
-filter:drop-shadow(0 0 25px lime);
-
-}
-
-}
-
 @keyframes moveGlow{
 
 0%{
-
 transform:
 translate(0,0);
-
 }
 
 100%{
-
 transform:
-translate(400px,300px);
-
+translate(300px,250px);
 }
 
 }
@@ -283,35 +256,15 @@ translate(400px,300px);
 
 @media(max-width:768px){
 
-.title{
+h1{
 
-font-size:40px;
-
-}
-
-.subtitle{
-
-font-size:20px;
+font-size:35px;
 
 }
 
-.card{
+.loginbox{
 
-padding:22px;
-
-}
-
-.card h2{
-
-font-size:28px;
-
-}
-
-.card p,
-.points li{
-
-font-size:18px;
-line-height:1.8;
+padding:30px 20px;
 
 }
 
@@ -323,279 +276,278 @@ line-height:1.8;
 
 <body>
 
-<script>
-
-/* LOGIN REDIRECT */
-
-const params =
-new URLSearchParams(
-window.location.search
-);
-
-if(
-params.get("access")
-!= "true"
-){
-
-window.location.href =
-"https://gowindasamy.github.io/login/login.html?page=12th";
-
-}
-
-</script>
-
 <div class="bg"></div>
 
 <div class="glow"></div>
 
-<div class="container">
+<div class="loginbox">
 
-<h1 class="title">
+<h1>
 
-🔥 12th 500+ 🔥
-
-<br>
-
-Marks Tips & Tricks
+🔥 LOGIN 🔥
 
 </h1>
 
-<p class="subtitle">
+<input
+type="text"
+id="username"
+placeholder="Enter Username">
 
-Tamil • English • Maths • Physics • Chemistry • Computer Science 🚀
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
 
-</p>
+<button onclick="login()">
 
-<!-- CARD 1 -->
+🚀 LOGIN
 
-<div class="card">
+</button>
 
-<h2>
+<p class="info">
 
-🎯 500+ Score Strategy
-
-</h2>
-
-<p>
-
-12ஆம் வகுப்பு பொதுத்தேர்வில்
-500+ மதிப்பெண்கள் பெற
-தினமும் consistency-ஆக படிப்பது,
-NCERT மற்றும் State Board books-ஐ
-முழுமையாகப் படிப்பது,
-மற்றும் revision செய்வது மிகவும் முக்கியம்.
+JEE • 12th Central Login System
 
 </p>
 
 </div>
 
-<!-- CARD 2 -->
+<script type="module">
 
-<div class="card">
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-<h2>
+import {
 
-📚 Daily Study Routine
+getFirestore,
+doc,
+getDoc,
+updateDoc
 
-</h2>
+}
 
-<ul class="points">
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-<li>
-⏰ தினமும் 10 மணி நேரம் focus study
-</li>
+const firebaseConfig = {
 
-<li>
-📖 Daily revision compulsory
-</li>
+apiKey:
+"AIzaSyAV9WmHR_cY01i3UMLpwlbymjjz_sQT_80",
 
-<li>
-🌅 Early morning study concentration அதிகரிக்கும்
-</li>
+authDomain:
+"tngslogin.firebaseapp.com",
 
-<li>
-📝 Notes maintain செய்யவும்
-</li>
+projectId:
+"tngslogin",
 
-<li>
-🔥 Weekly test practice செய்யவும்
-</li>
+storageBucket:
+"tngslogin.firebasestorage.app",
 
-</ul>
+messagingSenderId:
+"552680193680",
 
-</div>
+appId:
+"1:552680193680:web:54db58e0e418a2b63aa215"
 
-<!-- CARD 3 -->
+};
 
-<div class="card">
+const app =
+initializeApp(firebaseConfig);
 
-<h2>
+const db =
+getFirestore(app);
 
-📐 Maths Tips
+/* LOGIN */
 
-</h2>
+window.login =
+async function(){
 
-<ul class="points">
+let username =
+document.getElementById("username").value;
 
-<li>
-📌 Formulas daily revise செய்யவும்
-</li>
+let password =
+document.getElementById("password").value;
 
-<li>
-🧠 Step writing practice முக்கியம்
-</li>
+if(
+username.trim()==""
+||
+password.trim()==""
+){
 
-<li>
-📄 Previous year sums solve செய்யவும்
-</li>
+alert(
+"Enter Username & Password ❌"
+);
 
-<li>
-⚡ Shortcut methods practice செய்யவும்
-</li>
+return;
 
-</ul>
+}
 
-</div>
+const userRef =
+doc(db,"users",username);
 
-<!-- CARD 4 -->
+const userSnap =
+await getDoc(userRef);
 
-<div class="card">
+if(!userSnap.exists()){
 
-<h2>
+alert("User Not Found ❌");
 
-⚗ Physics & Chemistry Tips
+return;
 
-</h2>
+}
 
-<ul class="points">
+const data =
+userSnap.data();
 
-<li>
-🔬 Derivations important
-</li>
+/* PASSWORD CHECK */
 
-<li>
-⚡ Numerical problems daily practice
-</li>
+if(
+data.password != password
+){
 
-<li>
-🧪 Chemical equations மனப்பாடம் செய்யவும்
-</li>
+alert("Wrong Password ❌");
 
-<li>
-📖 One-word & definitions revise செய்யவும்
-</li>
+return;
 
-</ul>
+}
 
-</div>
+/* LOGIN LIMIT */
 
-<!-- CARD 5 -->
+let limit =
+data.loginLimit || 999999;
 
-<div class="card">
+let count =
+data.loginCount || 0;
 
-<h2>
+if(
+count >= limit
+&& limit != 999999
+){
 
-💻 Computer Science Tips
+alert("Account Locked 🔒");
 
-</h2>
+return;
 
-<ul class="points">
+}
 
-<li>
-⌨ Programs writing practice செய்யவும்
-</li>
+/* PAGE ACCESS */
 
-<li>
-📘 Syntax mistakes avoid செய்யவும்
-</li>
+const page =
+new URLSearchParams(
+window.location.search
+).get("page");
 
-<li>
-🧠 Definitions & functions memorize செய்யவும்
-</li>
+/* ACCESS CHECK */
 
-<li>
-📄 Book back questions complete செய்யவும்
-</li>
+if(
+page=="jee"
+&&
+data.pageAccess!="jee"
+&&
+data.pageAccess!="both"
+){
 
-</ul>
+alert(
+"JEE Access Denied ❌"
+);
 
-</div>
+return;
 
-<!-- CARD 6 -->
+}
 
-<div class="card">
+if(
+page=="12th"
+&&
+data.pageAccess!="12th"
+&&
+data.pageAccess!="both"
+){
 
-<h2>
+alert(
+"12th Access Denied ❌"
+);
 
-📝 Tamil & English Tips
+return;
 
-</h2>
+}
 
-<ul class="points">
+/* UPDATE LOGIN */
 
-<li>
-✍ Handwriting neat ஆக இருக்க வேண்டும்
-</li>
+const now =
+new Date();
 
-<li>
-📚 Grammar daily practice செய்யவும்
-</li>
+const loginData = {
 
-<li>
-📝 Long answers எழுதிப் பயிற்சி செய்யவும்
-</li>
+date:
+now.toLocaleDateString(),
 
-<li>
-🔥 Quote & poem lines memorize செய்யவும்
-</li>
+time:
+now.toLocaleTimeString()
 
-</ul>
+};
 
-</div>
+await updateDoc(userRef,{
 
-<!-- CARD 7 -->
+loginCount:count+1,
 
-<div class="card">
+loginHistory:[
+...(data.loginHistory || []),
+loginData
+]
 
-<h2>
+});
 
-💪 Mindset & Discipline
+/* SUCCESS */
 
-</h2>
+alert("Login Success ✅");
 
-<ul class="points">
+/* REDIRECT */
 
-<li>
-🚫 Social media distraction avoid செய்யவும்
-</li>
+if(page=="jee"){
 
-<li>
-🔥 Consistency maintain செய்யவும்
-</li>
+window.location.href =
+"https://gowindasamy.github.io/jee/?access=true";
 
-<li>
-😴 Proper sleep & healthy food அவசியம்
-</li>
+}
 
-<li>
-👑 Self confidence தான் success secret
-</li>
+else if(page=="12th"){
 
-</ul>
+window.location.href =
+"https://gowindasamy.github.io/12th/?access=true";
 
-</div>
+}
 
-<div class="footer">
+else{
 
-👑 Created By Gowindasamy
+const choose =
+prompt(
+"Open:\njee\n12th"
+);
 
-<br><br>
+if(choose=="jee"){
 
-🔥 Study Hard • Score 500+ 🔥
+window.location.href =
+"https://gowindasamy.github.io/jee/?access=true";
 
-</div>
+}
 
-</div>
+else if(choose=="12th"){
+
+window.location.href =
+"https://gowindasamy.github.io/12th/?access=true";
+
+}
+
+else{
+
+alert("Invalid Option ❌");
+
+}
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
