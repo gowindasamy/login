@@ -28,14 +28,22 @@ justify-content:center;
 align-items:center;
 
 background:
-radial-gradient(
-circle at top,
+linear-gradient(
+135deg,
 
-#111111,
-
-#000000 70%
+#000000,
+#001a00,
+#003300,
+#001100,
+#000000
 
 );
+
+background-size:
+400% 400%;
+
+animation:
+greenBg 6s linear infinite;
 
 font-family:
 'Poppins',
@@ -62,7 +70,7 @@ radial-gradient(
 
 circle,
 
-rgba(255,80,0,0.35),
+rgba(0,255,100,0.35),
 
 transparent 70%
 
@@ -94,17 +102,20 @@ backdrop-filter:
 blur(15px);
 
 border:
-1px solid rgba(255,120,0,0.18);
+1px solid rgba(0,255,120,0.25);
 
 box-shadow:
 
-0 0 25px rgba(255,80,0,0.2),
+0 0 25px rgba(0,255,120,0.25),
 
-0 0 60px rgba(255,40,0,0.08);
+0 0 60px rgba(0,255,120,0.15);
 
 text-align:center;
 
 z-index:2;
+
+animation:
+rainbowGlow 1.5s linear infinite;
 
 }
 
@@ -125,11 +136,10 @@ linear-gradient(
 
 90deg,
 
-#ff3300,
-
-#ff6600,
-
-#ffaa00
+#00ff66,
+#00ffaa,
+#00ffcc,
+#66ff99
 
 );
 
@@ -138,7 +148,10 @@ linear-gradient(
 -webkit-text-fill-color:transparent;
 
 text-shadow:
-0 0 20px rgba(255,80,0,0.5);
+0 0 20px rgba(0,255,120,0.5);
+
+animation:
+titleGlow 1.8s linear infinite alternate;
 
 }
 
@@ -169,7 +182,7 @@ box-shadow:
 
 inset 0 0 10px rgba(255,255,255,0.03),
 
-0 0 18px rgba(255,80,0,0.12);
+0 0 18px rgba(0,255,120,0.12);
 
 transition:0.3s;
 
@@ -181,7 +194,7 @@ transform:scale(1.02);
 
 box-shadow:
 
-0 0 25px rgba(255,120,0,0.35);
+0 0 25px rgba(0,255,120,0.5);
 
 }
 
@@ -208,23 +221,24 @@ linear-gradient(
 
 90deg,
 
-#ff3300,
-
-#ff6600,
-
-#ffaa00
+#00ff66,
+#00ffaa,
+#00ffcc
 
 );
 
-color:white;
+color:black;
 
 letter-spacing:2px;
 
 box-shadow:
 
-0 0 25px rgba(255,80,0,0.4);
+0 0 25px rgba(0,255,120,0.4);
 
 transition:0.3s;
+
+animation:
+buttonPulse 1.4s infinite;
 
 }
 
@@ -236,7 +250,7 @@ scale(1.02);
 
 box-shadow:
 
-0 0 40px rgba(255,120,0,0.7);
+0 0 40px rgba(0,255,120,0.8);
 
 }
 
@@ -287,10 +301,10 @@ width:350px;
 text-align:center;
 
 border:
-1px solid rgba(255,120,0,0.2);
+1px solid rgba(0,255,120,0.2);
 
 box-shadow:
-0 0 35px rgba(255,80,0,0.3);
+0 0 35px rgba(0,255,120,0.3);
 
 }
 
@@ -300,7 +314,7 @@ margin-bottom:25px;
 
 font-size:32px;
 
-color:#ff8800;
+color:#00ff99;
 
 }
 
@@ -333,7 +347,7 @@ width:100%;
 
 }
 
-/* ANIMATION */
+/* ANIMATIONS */
 
 @keyframes moveGlow{
 
@@ -345,6 +359,84 @@ translate(-100px,-50px);
 100%{
 transform:
 translate(120px,80px);
+}
+
+}
+
+@keyframes greenBg{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+@keyframes rainbowGlow{
+
+0%{
+
+box-shadow:
+0 0 25px #00ff66,
+0 0 60px #00ff99;
+
+}
+
+50%{
+
+box-shadow:
+0 0 35px #00ffaa,
+0 0 80px #00ffcc;
+
+}
+
+100%{
+
+box-shadow:
+0 0 25px #00ff66,
+0 0 60px #00ff99;
+
+}
+
+}
+
+@keyframes titleGlow{
+
+0%{
+
+filter:
+drop-shadow(0 0 10px #00ff66);
+
+}
+
+100%{
+
+filter:
+drop-shadow(0 0 30px #00ffaa);
+
+}
+
+}
+
+@keyframes buttonPulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.03);
+}
+
+100%{
+transform:scale(1);
 }
 
 }
@@ -450,12 +542,9 @@ doc(db,"users",username);
 const userSnap =
 await getDoc(userRef);
 
-/* USER NOT FOUND */
-
 if(!userSnap.exists()){
 
 alert("User Not Found ❌");
-
 return;
 
 }
@@ -463,12 +552,9 @@ return;
 const data =
 userSnap.data();
 
-/* WRONG PASSWORD */
-
 if(data.password != password){
 
 alert("Wrong Password ❌");
-
 return;
 
 }
@@ -482,22 +568,15 @@ data.loginCount || 0;
 let limit =
 data.loginLimit || 999999;
 
-/* LOCK CHECK */
-
 if(
 count >= limit
 && limit != 999999
 ){
 
-alert(
-"ACCOUNT LOCKED ❌"
-);
-
+alert("ACCOUNT LOCKED ❌");
 return;
 
 }
-
-/* LOGIN DATA */
 
 const now =
 new Date();
@@ -512,8 +591,6 @@ now.toLocaleTimeString()
 
 };
 
-/* DIRECT PAGE LOGIN */
-
 if(currentPage){
 
 if(
@@ -521,7 +598,6 @@ if(
 ){
 
 alert("ACCESS DENIED ❌");
-
 return;
 
 }
@@ -535,16 +611,11 @@ loginCount:
 count + 1,
 
 loginHistory:[
-
 ...(data.loginHistory || []),
-
 loginData
-
 ]
 
 });
-
-/* REDIRECT */
 
 if(currentPage == "jee"){
 
@@ -571,8 +642,6 @@ return;
 
 }
 
-/* MULTI ACCESS */
-
 if(access.length > 1){
 
 showChoosePopup(
@@ -584,8 +653,6 @@ loginData
 );
 
 }
-
-/* SINGLE ACCESS */
 
 else{
 
@@ -601,16 +668,11 @@ loginCount:
 count + 1,
 
 loginHistory:[
-
 ...(data.loginHistory || []),
-
 loginData
-
 ]
 
 });
-
-/* REDIRECT */
 
 if(page == "jee"){
 
@@ -671,11 +733,7 @@ box.innerHTML =
 const select =
 document.createElement("select");
 
-/* OPTIONS */
-
-if(
-access.includes("jee")
-){
+if(access.includes("jee")){
 
 select.innerHTML +=
 
@@ -687,9 +745,7 @@ select.innerHTML +=
 
 }
 
-if(
-access.includes("12th")
-){
+if(access.includes("12th")){
 
 select.innerHTML +=
 
@@ -701,9 +757,7 @@ select.innerHTML +=
 
 }
 
-if(
-access.includes("topperzone")
-){
+if(access.includes("topperzone")){
 
 select.innerHTML +=
 
@@ -736,16 +790,11 @@ loginCount:
 count + 1,
 
 loginHistory:[
-
 ...(data.loginHistory || []),
-
 loginData
-
 ]
 
 });
-
-/* REDIRECT */
 
 if(selected == "jee"){
 
@@ -785,4 +834,4 @@ popup
 </script>
 
 </body>
-</html>
+  </html>
