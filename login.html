@@ -30,15 +30,18 @@ align-items:center;
 background:
 radial-gradient(
 circle at top,
+
 #111111,
+
 #000000 70%
+
 );
 
 font-family:
 'Poppins',
 sans-serif;
 
-overflow-x:hidden;
+overflow:hidden;
 
 }
 
@@ -54,10 +57,15 @@ width:700px;
 height:700px;
 
 background:
+
 radial-gradient(
+
 circle,
+
 rgba(255,80,0,0.35),
+
 transparent 70%
+
 );
 
 filter:blur(120px);
@@ -75,8 +83,6 @@ position:relative;
 
 width:420px;
 
-max-width:92%;
-
 padding:45px 35px;
 
 border-radius:30px;
@@ -93,14 +99,12 @@ border:
 box-shadow:
 
 0 0 25px rgba(255,80,0,0.2),
+
 0 0 60px rgba(255,40,0,0.08);
 
 text-align:center;
 
 z-index:2;
-
-animation:
-glow 2s linear infinite;
 
 }
 
@@ -118,10 +122,15 @@ letter-spacing:3px;
 
 background:
 linear-gradient(
+
 90deg,
+
 #ff3300,
+
 #ff6600,
+
 #ffaa00
+
 );
 
 -webkit-background-clip:text;
@@ -157,7 +166,9 @@ font-size:20px;
 color:white;
 
 box-shadow:
+
 inset 0 0 10px rgba(255,255,255,0.03),
+
 0 0 18px rgba(255,80,0,0.12);
 
 transition:0.3s;
@@ -169,6 +180,7 @@ transition:0.3s;
 transform:scale(1.02);
 
 box-shadow:
+
 0 0 25px rgba(255,120,0,0.35);
 
 }
@@ -193,10 +205,15 @@ cursor:pointer;
 
 background:
 linear-gradient(
+
 90deg,
+
 #ff3300,
+
 #ff6600,
+
 #ffaa00
+
 );
 
 color:white;
@@ -204,6 +221,7 @@ color:white;
 letter-spacing:2px;
 
 box-shadow:
+
 0 0 25px rgba(255,80,0,0.4);
 
 transition:0.3s;
@@ -217,6 +235,7 @@ translateY(-4px)
 scale(1.02);
 
 box-shadow:
+
 0 0 40px rgba(255,120,0,0.7);
 
 }
@@ -230,7 +249,91 @@ rgba(255,255,255,0.45);
 
 }
 
-/* ANIMATIONS */
+/* POPUP */
+
+.popup{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+rgba(0,0,0,0.88);
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+
+}
+
+.popupbox{
+
+background:
+rgba(20,20,20,0.95);
+
+padding:35px;
+
+border-radius:25px;
+
+width:350px;
+
+text-align:center;
+
+border:
+1px solid rgba(255,120,0,0.2);
+
+box-shadow:
+0 0 35px rgba(255,80,0,0.3);
+
+}
+
+.popupbox h2{
+
+margin-bottom:25px;
+
+font-size:32px;
+
+color:#ff8800;
+
+}
+
+.popupbox select{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+outline:none;
+
+border-radius:15px;
+
+font-size:18px;
+
+margin-bottom:20px;
+
+background:
+rgba(255,255,255,0.08);
+
+color:white;
+
+}
+
+.popupbox button{
+
+width:100%;
+
+}
+
+/* ANIMATION */
 
 @keyframes moveGlow{
 
@@ -242,25 +345,6 @@ translate(-100px,-50px);
 100%{
 transform:
 translate(120px,80px);
-}
-
-}
-
-@keyframes glow{
-
-0%{
-box-shadow:
-0 0 20px #ff3300;
-}
-
-50%{
-box-shadow:
-0 0 40px #ff8800;
-}
-
-100%{
-box-shadow:
-0 0 20px #ff3300;
 }
 
 }
@@ -299,10 +383,14 @@ import { initializeApp }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
+
 getFirestore,
 doc,
-getDoc
+getDoc,
+updateDoc
+
 }
+
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -341,28 +429,28 @@ async function(){
 let username =
 document.getElementById(
 "username"
-).value.trim();
+).value;
 
 let password =
 document.getElementById(
 "password"
-).value.trim();
+).value;
 
-if(!username || !password){
-
-alert(
-"Enter Username & Password ❌"
+const params =
+new URLSearchParams(
+window.location.search
 );
 
-return;
-
-}
+let currentPage =
+params.get("page");
 
 const userRef =
 doc(db,"users",username);
 
 const userSnap =
 await getDoc(userRef);
+
+/* USER NOT FOUND */
 
 if(!userSnap.exists()){
 
@@ -375,6 +463,8 @@ return;
 const data =
 userSnap.data();
 
+/* WRONG PASSWORD */
+
 if(data.password != password){
 
 alert("Wrong Password ❌");
@@ -383,8 +473,311 @@ return;
 
 }
 
+let access =
+data.pageAccess || [];
+
+let count =
+data.loginCount || 0;
+
+let limit =
+data.loginLimit || 999999;
+
+/* LOCK CHECK */
+
+if(
+count >= limit
+&& limit != 999999
+){
+
 alert(
-"Login Successful ✅"
+"ACCOUNT LOCKED ❌"
+);
+
+return;
+
+}
+
+/* LOGIN DATA */
+
+const now =
+new Date();
+
+const loginData = {
+
+date:
+now.toLocaleDateString(),
+
+time:
+now.toLocaleTimeString()
+
+};
+
+/* DIRECT PAGE LOGIN */
+
+if(currentPage){
+
+if(
+!access.includes(currentPage)
+){
+
+alert("ACCESS DENIED ❌");
+
+return;
+
+}
+
+loginData.page =
+currentPage.toUpperCase();
+
+await updateDoc(userRef,{
+
+loginCount:
+count + 1,
+
+loginHistory:[
+
+...(data.loginHistory || []),
+
+loginData
+
+]
+
+});
+
+/* REDIRECT */
+
+if(currentPage == "jee"){
+
+window.location.href =
+"https://gowindasamy.github.io/jee/?access=true";
+
+}
+
+else if(currentPage == "12th"){
+
+window.location.href =
+"https://gowindasamy.github.io/12th/?access=true";
+
+}
+
+else{
+
+window.location.href =
+"https://gowindasamy.github.io/TopperZone/?access=true";
+
+}
+
+return;
+
+}
+
+/* MULTI ACCESS */
+
+if(access.length > 1){
+
+showChoosePopup(
+access,
+userRef,
+data,
+count,
+loginData
+);
+
+}
+
+/* SINGLE ACCESS */
+
+else{
+
+const page =
+access[0];
+
+loginData.page =
+page.toUpperCase();
+
+await updateDoc(userRef,{
+
+loginCount:
+count + 1,
+
+loginHistory:[
+
+...(data.loginHistory || []),
+
+loginData
+
+]
+
+});
+
+/* REDIRECT */
+
+if(page == "jee"){
+
+window.location.href =
+"https://gowindasamy.github.io/jee/?access=true";
+
+}
+
+else if(page == "12th"){
+
+window.location.href =
+"https://gowindasamy.github.io/12th/?access=true";
+
+}
+
+else{
+
+window.location.href =
+"https://gowindasamy.github.io/TopperZone/?access=true";
+
+}
+
+}
+
+}
+
+/* CHOOSE POPUP */
+
+window.showChoosePopup =
+function(
+access,
+userRef,
+data,
+count,
+loginData
+){
+
+const popup =
+document.createElement("div");
+
+popup.className =
+"popup";
+
+const box =
+document.createElement("div");
+
+box.className =
+"popupbox";
+
+box.innerHTML =
+
+`
+<h2>
+🌍 Choose Page
+</h2>
+`;
+
+const select =
+document.createElement("select");
+
+/* OPTIONS */
+
+if(
+access.includes("jee")
+){
+
+select.innerHTML +=
+
+`
+<option value="jee">
+🔥 JEE
+</option>
+`;
+
+}
+
+if(
+access.includes("12th")
+){
+
+select.innerHTML +=
+
+`
+<option value="12th">
+📚 12TH
+</option>
+`;
+
+}
+
+if(
+access.includes("topperzone")
+){
+
+select.innerHTML +=
+
+`
+<option value="topperzone">
+🚀 TOPPERZONE
+</option>
+`;
+
+}
+
+const btn =
+document.createElement("button");
+
+btn.innerHTML =
+"🚀 OPEN";
+
+btn.onclick =
+async function(){
+
+let selected =
+select.value;
+
+loginData.page =
+selected.toUpperCase();
+
+await updateDoc(userRef,{
+
+loginCount:
+count + 1,
+
+loginHistory:[
+
+...(data.loginHistory || []),
+
+loginData
+
+]
+
+});
+
+/* REDIRECT */
+
+if(selected == "jee"){
+
+window.location.href =
+"https://gowindasamy.github.io/jee/?access=true";
+
+}
+
+else if(selected == "12th"){
+
+window.location.href =
+"https://gowindasamy.github.io/12th/?access=true";
+
+}
+
+else{
+
+window.location.href =
+"https://gowindasamy.github.io/TopperZone/?access=true";
+
+}
+
+};
+
+box.appendChild(select);
+
+box.appendChild(btn);
+
+popup.appendChild(box);
+
+document.body.appendChild(
+popup
 );
 
 }
