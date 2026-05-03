@@ -1,172 +1,251 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
-<title>🔐 LOGIN PAGE 🔐</title>
+<meta charset="UTF-8">
+
+<title>
+🔥 PREMIUM LOGIN 🔥
+</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 
-body{
+*{
 margin:0;
 padding:0;
-background:black;
-font-family:Arial;
-color:white;
-text-align:center;
-overflow:hidden;
+box-sizing:border-box;
 }
 
-/* BACKGROUND */
+body{
 
-.bg{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
 background:
-linear-gradient(
-135deg,
-#000000,
-#001f1f,
-#002244,
-#000000
+radial-gradient(
+circle at top,
+
+#111111,
+
+#000000 70%
+
 );
-background-size:400% 400%;
-animation:bgmove 10s ease infinite;
-z-index:-2;
+
+font-family:
+'Poppins',
+sans-serif;
+
+overflow:hidden;
+
 }
 
-.glow{
-position:fixed;
-width:500px;
-height:500px;
-background:cyan;
-filter:blur(170px);
-opacity:0.15;
-border-radius:50%;
-top:-100px;
-left:-100px;
-animation:moveGlow 8s linear infinite alternate;
-z-index:-1;
+/* BACKGROUND GLOW */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+width:700px;
+height:700px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(255,80,0,0.35),
+
+transparent 70%
+
+);
+
+filter:blur(120px);
+
+animation:
+moveGlow 8s ease-in-out infinite alternate;
+
 }
 
-/* CONTAINER */
+/* LOGIN BOX */
 
 .box{
 
-width:340px;
+position:relative;
 
-margin:120px auto;
+width:420px;
 
-padding:35px;
+padding:45px 35px;
 
-border-radius:25px;
+border-radius:30px;
 
 background:
-rgba(255,255,255,0.06);
+rgba(20,20,20,0.88);
+
+backdrop-filter:
+blur(15px);
 
 border:
-1px solid rgba(0,255,255,0.3);
-
-backdrop-filter:blur(10px);
+1px solid rgba(255,120,0,0.18);
 
 box-shadow:
-0 0 30px rgba(0,255,255,0.3);
+
+0 0 25px rgba(255,80,0,0.2),
+
+0 0 60px rgba(255,40,0,0.08);
+
+text-align:center;
+
+z-index:2;
 
 }
 
 /* TITLE */
 
-h1{
+.box h1{
 
-font-size:42px;
+font-size:52px;
 
-margin-bottom:25px;
+margin-bottom:40px;
+
+font-weight:900;
+
+letter-spacing:3px;
 
 background:
 linear-gradient(
+
 90deg,
-cyan,
-lime,
-white
+
+#ff3300,
+
+#ff6600,
+
+#ffaa00
+
 );
 
 -webkit-background-clip:text;
+
 -webkit-text-fill-color:transparent;
+
+text-shadow:
+0 0 20px rgba(255,80,0,0.5);
 
 }
 
 /* INPUT */
 
-input{
+.box input{
 
-width:90%;
+width:100%;
 
-padding:15px;
+padding:18px 22px;
 
-margin:12px 0;
+margin-bottom:24px;
 
 border:none;
 
 outline:none;
 
-border-radius:14px;
-
-font-size:17px;
+border-radius:18px;
 
 background:
-rgba(255,255,255,0.08);
+rgba(255,255,255,0.05);
+
+font-size:20px;
 
 color:white;
 
 box-shadow:
-0 0 15px cyan;
 
-}
+inset 0 0 10px rgba(255,255,255,0.03),
 
-/* BUTTON */
-
-button{
-
-padding:14px 30px;
-
-margin-top:15px;
-
-border:none;
-
-border-radius:14px;
-
-font-size:18px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-background:
-linear-gradient(
-135deg,
-#00ffff,
-#00ff99,
-#00ccff
-);
-
-color:black;
-
-box-shadow:
-0 0 20px cyan;
+0 0 18px rgba(255,80,0,0.12);
 
 transition:0.3s;
 
 }
 
-button:hover{
+.box input:focus{
 
-transform:
-scale(1.05);
+transform:scale(1.02);
 
 box-shadow:
-0 0 35px cyan;
+
+0 0 25px rgba(255,120,0,0.35);
+
+}
+
+/* BUTTON */
+
+.box button{
+
+width:100%;
+
+padding:18px;
+
+border:none;
+
+border-radius:18px;
+
+font-size:22px;
+
+font-weight:700;
+
+cursor:pointer;
+
+background:
+linear-gradient(
+
+90deg,
+
+#ff3300,
+
+#ff6600,
+
+#ffaa00
+
+);
+
+color:white;
+
+letter-spacing:2px;
+
+box-shadow:
+
+0 0 25px rgba(255,80,0,0.4);
+
+transition:0.3s;
+
+}
+
+.box button:hover{
+
+transform:
+translateY(-4px)
+scale(1.02);
+
+box-shadow:
+
+0 0 40px rgba(255,120,0,0.7);
+
+}
+
+/* PLACEHOLDER */
+
+::placeholder{
+
+color:
+rgba(255,255,255,0.45);
 
 }
 
@@ -183,7 +262,7 @@ width:100%;
 height:100%;
 
 background:
-rgba(0,0,0,0.85);
+rgba(0,0,0,0.88);
 
 display:flex;
 
@@ -196,45 +275,76 @@ z-index:9999;
 
 .popupbox{
 
-background:black;
+background:
+rgba(20,20,20,0.95);
 
-padding:30px;
+padding:35px;
 
-border-radius:20px;
+border-radius:25px;
+
+width:350px;
+
+text-align:center;
+
+border:
+1px solid rgba(255,120,0,0.2);
 
 box-shadow:
-0 0 30px cyan;
+0 0 35px rgba(255,80,0,0.3);
 
-width:320px;
+}
+
+.popupbox h2{
+
+margin-bottom:25px;
+
+font-size:32px;
+
+color:#ff8800;
+
+}
+
+.popupbox select{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+outline:none;
+
+border-radius:15px;
+
+font-size:18px;
+
+margin-bottom:20px;
+
+background:
+rgba(255,255,255,0.08);
+
+color:white;
+
+}
+
+.popupbox button{
+
+width:100%;
 
 }
 
 /* ANIMATION */
 
-@keyframes bgmove{
-
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
-
-}
-
 @keyframes moveGlow{
 
 0%{
-transform:translate(0,0);
+transform:
+translate(-100px,-50px);
 }
 
 100%{
-transform:translate(400px,300px);
+transform:
+translate(120px,80px);
 }
 
 }
@@ -245,13 +355,10 @@ transform:translate(400px,300px);
 
 <body>
 
-<div class="bg"></div>
-<div class="glow"></div>
-
 <div class="box">
 
 <h1>
-🔐 LOGIN
+🔥 LOGIN
 </h1>
 
 <input
@@ -405,16 +512,22 @@ now.toLocaleTimeString()
 
 };
 
-/* JEE PAGE */
+/* DIRECT PAGE LOGIN */
 
-if(currentPage == "jee"){
+if(currentPage){
 
 if(
-access.includes("jee")
+!access.includes(currentPage)
 ){
 
+alert("ACCESS DENIED ❌");
+
+return;
+
+}
+
 loginData.page =
-"JEE";
+currentPage.toUpperCase();
 
 await updateDoc(userRef,{
 
@@ -431,111 +544,34 @@ loginData
 
 });
 
-alert("Login Success ✅");
+/* REDIRECT */
+
+if(currentPage == "jee"){
 
 window.location.href =
-
 "https://gowindasamy.github.io/jee/?access=true";
 
 }
 
-else{
-
-alert("ACCESS DENIED ❌");
-
-}
-
-}
-
-/* 12TH PAGE */
-
 else if(currentPage == "12th"){
 
-if(
-access.includes("12th")
-){
-
-loginData.page =
-"12TH";
-
-await updateDoc(userRef,{
-
-loginCount:
-count + 1,
-
-loginHistory:[
-
-...(data.loginHistory || []),
-
-loginData
-
-]
-
-});
-
-alert("Login Success ✅");
-
 window.location.href =
-
 "https://gowindasamy.github.io/12th/?access=true";
 
 }
 
 else{
 
-alert("ACCESS DENIED ❌");
-
-}
-
-}
-
-/* TOPPERZONE */
-
-else if(currentPage == "topperzone"){
-
-if(
-access.includes("topperzone")
-){
-
-loginData.page =
-"TOPPERZONE";
-
-await updateDoc(userRef,{
-
-loginCount:
-count + 1,
-
-loginHistory:[
-
-...(data.loginHistory || []),
-
-loginData
-
-]
-
-});
-
-alert("Login Success ✅");
-
 window.location.href =
-
 "https://gowindasamy.github.io/TopperZone/?access=true";
 
 }
 
-else{
-
-alert("ACCESS DENIED ❌");
+return;
 
 }
 
-}
-
-/* CENTRAL LOGIN */
-
-else{
-
-/* MULTIPLE ACCESS */
+/* MULTI ACCESS */
 
 if(access.length > 1){
 
@@ -549,14 +585,15 @@ loginData
 
 }
 
-/* JEE */
+/* SINGLE ACCESS */
 
-else if(
-access.includes("jee")
-){
+else{
+
+const page =
+access[0];
 
 loginData.page =
-"JEE";
+page.toUpperCase();
 
 await updateDoc(userRef,{
 
@@ -573,74 +610,25 @@ loginData
 
 });
 
-alert("Login Success ✅");
+/* REDIRECT */
+
+if(page == "jee"){
 
 window.location.href =
-
 "https://gowindasamy.github.io/jee/?access=true";
 
 }
 
-/* 12TH */
-
-else if(
-access.includes("12th")
-){
-
-loginData.page =
-"12TH";
-
-await updateDoc(userRef,{
-
-loginCount:
-count + 1,
-
-loginHistory:[
-
-...(data.loginHistory || []),
-
-loginData
-
-]
-
-});
-
-alert("Login Success ✅");
+else if(page == "12th"){
 
 window.location.href =
-
 "https://gowindasamy.github.io/12th/?access=true";
 
 }
 
-/* TOPPERZONE */
-
-else if(
-access.includes("topperzone")
-){
-
-loginData.page =
-"TOPPERZONE";
-
-await updateDoc(userRef,{
-
-loginCount:
-count + 1,
-
-loginHistory:[
-
-...(data.loginHistory || []),
-
-loginData
-
-]
-
-});
-
-alert("Login Success ✅");
+else{
 
 window.location.href =
-
 "https://gowindasamy.github.io/TopperZone/?access=true";
 
 }
@@ -675,28 +663,13 @@ box.className =
 box.innerHTML =
 
 `
-<h2 style="color:cyan;">
+<h2>
 🌍 Choose Page
 </h2>
 `;
 
 const select =
 document.createElement("select");
-
-select.style.width =
-"90%";
-
-select.style.padding =
-"15px";
-
-select.style.marginTop =
-"20px";
-
-select.style.borderRadius =
-"12px";
-
-select.style.fontSize =
-"18px";
 
 /* OPTIONS */
 
@@ -707,11 +680,9 @@ access.includes("jee")
 select.innerHTML +=
 
 `
-
 <option value="jee">
 🔥 JEE
 </option>
-
 `;
 
 }
@@ -723,11 +694,9 @@ access.includes("12th")
 select.innerHTML +=
 
 `
-
 <option value="12th">
 📚 12TH
 </option>
-
 `;
 
 }
@@ -739,16 +708,12 @@ access.includes("topperzone")
 select.innerHTML +=
 
 `
-
 <option value="topperzone">
 🚀 TOPPERZONE
 </option>
-
 `;
 
 }
-
-/* BUTTON */
 
 const btn =
 document.createElement("button");
@@ -759,12 +724,11 @@ btn.innerHTML =
 btn.onclick =
 async function(){
 
-/* JEE */
-
-if(select.value == "jee"){
+let selected =
+select.value;
 
 loginData.page =
-"JEE";
+selected.toUpperCase();
 
 await updateDoc(userRef,{
 
@@ -781,66 +745,25 @@ loginData
 
 });
 
-window.location.href =
+/* REDIRECT */
 
+if(selected == "jee"){
+
+window.location.href =
 "https://gowindasamy.github.io/jee/?access=true";
 
 }
 
-/* 12TH */
-
-else if(
-select.value == "12th"
-){
-
-loginData.page =
-"12TH";
-
-await updateDoc(userRef,{
-
-loginCount:
-count + 1,
-
-loginHistory:[
-
-...(data.loginHistory || []),
-
-loginData
-
-]
-
-});
+else if(selected == "12th"){
 
 window.location.href =
-
 "https://gowindasamy.github.io/12th/?access=true";
 
 }
 
-/* TOPPERZONE */
-
 else{
 
-loginData.page =
-"TOPPERZONE";
-
-await updateDoc(userRef,{
-
-loginCount:
-count + 1,
-
-loginHistory:[
-
-...(data.loginHistory || []),
-
-loginData
-
-]
-
-});
-
 window.location.href =
-
 "https://gowindasamy.github.io/TopperZone/?access=true";
 
 }
