@@ -8,7 +8,7 @@
 🔥 PREMIUM LOGIN 🔥
 </title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -28,14 +28,22 @@ justify-content:center;
 align-items:center;
 
 background:
-radial-gradient(
-circle at top,
+linear-gradient(
+135deg,
 
-#111111,
-
-#000000 70%
+#000000,
+#120000,
+#001111,
+#000022,
+#000000
 
 );
+
+background-size:
+400% 400%;
+
+animation:
+bgMove 12s ease infinite;
 
 font-family:
 'Poppins',
@@ -85,26 +93,31 @@ width:420px;
 
 padding:45px 35px;
 
-border-radius:30px;
+border-radius:35px;
 
 background:
-rgba(20,20,20,0.88);
+rgba(15,15,15,0.78);
 
 backdrop-filter:
-blur(15px);
+blur(18px);
 
 border:
-1px solid rgba(255,120,0,0.18);
+1px solid rgba(255,255,255,0.08);
 
 box-shadow:
 
-0 0 25px rgba(255,80,0,0.2),
+0 0 20px rgba(255,0,0,0.25),
 
-0 0 60px rgba(255,40,0,0.08);
+0 0 35px rgba(0,255,255,0.18),
+
+0 0 60px rgba(255,0,255,0.12);
 
 text-align:center;
 
 z-index:2;
+
+animation:
+rainbowGlow 4s linear infinite;
 
 }
 
@@ -112,33 +125,47 @@ z-index:2;
 
 .box h1{
 
-font-size:52px;
+font-size:60px;
 
 margin-bottom:40px;
 
 font-weight:900;
 
-letter-spacing:3px;
+letter-spacing:5px;
+
+font-family:
+'Orbitron',
+sans-serif;
 
 background:
 linear-gradient(
 
 90deg,
 
-#ff3300,
-
-#ff6600,
-
-#ffaa00
+#ff0000,
+#ff8800,
+#ffff00,
+#00ffcc,
+#00aaff,
+#ff00ff
 
 );
+
+background-size:
+300% 300%;
+
+animation:
+textFlow 5s linear infinite;
 
 -webkit-background-clip:text;
 
 -webkit-text-fill-color:transparent;
 
 text-shadow:
-0 0 20px rgba(255,80,0,0.5);
+
+0 0 15px rgba(255,255,255,0.2),
+
+0 0 35px rgba(255,0,255,0.25);
 
 }
 
@@ -163,13 +190,15 @@ rgba(255,255,255,0.05);
 
 font-size:20px;
 
+font-weight:600;
+
 color:white;
 
 box-shadow:
 
-inset 0 0 10px rgba(255,255,255,0.03),
+0 0 12px rgba(0,255,255,0.18),
 
-0 0 18px rgba(255,80,0,0.12);
+0 0 25px rgba(255,0,255,0.08);
 
 transition:0.3s;
 
@@ -177,11 +206,15 @@ transition:0.3s;
 
 .box input:focus{
 
-transform:scale(1.02);
+transform:scale(1.03);
 
 box-shadow:
 
-0 0 25px rgba(255,120,0,0.35);
+0 0 18px cyan,
+
+0 0 35px magenta,
+
+0 0 50px orange;
 
 }
 
@@ -197,32 +230,47 @@ border:none;
 
 border-radius:18px;
 
-font-size:22px;
+font-size:24px;
 
-font-weight:700;
+font-weight:800;
 
 cursor:pointer;
+
+font-family:
+'Orbitron',
+sans-serif;
 
 background:
 linear-gradient(
 
 90deg,
 
-#ff3300,
-
-#ff6600,
-
-#ffaa00
+#ff0000,
+#ff8800,
+#ffff00,
+#00ffcc,
+#00aaff,
+#ff00ff
 
 );
 
+background-size:
+300% 300%;
+
+animation:
+textFlow 5s linear infinite;
+
 color:white;
 
-letter-spacing:2px;
+letter-spacing:3px;
 
 box-shadow:
 
-0 0 25px rgba(255,80,0,0.4);
+0 0 20px rgba(255,0,0,0.3),
+
+0 0 40px rgba(0,255,255,0.2),
+
+0 0 60px rgba(255,0,255,0.15);
 
 transition:0.3s;
 
@@ -232,11 +280,15 @@ transition:0.3s;
 
 transform:
 translateY(-4px)
-scale(1.02);
+scale(1.03);
 
 box-shadow:
 
-0 0 40px rgba(255,120,0,0.7);
+0 0 25px red,
+
+0 0 45px cyan,
+
+0 0 70px magenta;
 
 }
 
@@ -300,7 +352,20 @@ margin-bottom:25px;
 
 font-size:32px;
 
-color:#ff8800;
+font-family:
+'Orbitron',
+sans-serif;
+
+background:
+linear-gradient(
+90deg,
+#ff0000,
+#00ffff,
+#ff00ff
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 
 }
 
@@ -345,6 +410,73 @@ translate(-100px,-50px);
 100%{
 transform:
 translate(120px,80px);
+}
+
+}
+
+@keyframes rainbowGlow{
+
+0%{
+
+box-shadow:
+0 0 25px red;
+
+}
+
+25%{
+
+box-shadow:
+0 0 30px orange;
+
+}
+
+50%{
+
+box-shadow:
+0 0 35px cyan;
+
+}
+
+75%{
+
+box-shadow:
+0 0 35px magenta;
+
+}
+
+100%{
+
+box-shadow:
+0 0 25px red;
+
+}
+
+}
+
+@keyframes textFlow{
+
+0%{
+background-position:0% 50%;
+}
+
+100%{
+background-position:100% 50%;
+}
+
+}
+
+@keyframes bgMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
 }
 
 }
@@ -671,11 +803,7 @@ box.innerHTML =
 const select =
 document.createElement("select");
 
-/* OPTIONS */
-
-if(
-access.includes("jee")
-){
+if(access.includes("jee")){
 
 select.innerHTML +=
 
@@ -687,9 +815,7 @@ select.innerHTML +=
 
 }
 
-if(
-access.includes("12th")
-){
+if(access.includes("12th")){
 
 select.innerHTML +=
 
@@ -701,9 +827,7 @@ select.innerHTML +=
 
 }
 
-if(
-access.includes("topperzone")
-){
+if(access.includes("topperzone")){
 
 select.innerHTML +=
 
@@ -744,8 +868,6 @@ loginData
 ]
 
 });
-
-/* REDIRECT */
 
 if(selected == "jee"){
 
