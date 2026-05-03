@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 
 <title>
-🔥 ULTRA PREMIUM LOGIN 🔥
+🔥 PREMIUM LOGIN 🔥
 </title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -28,22 +28,11 @@ justify-content:center;
 align-items:center;
 
 background:
-linear-gradient(
-135deg,
-
-#000000,
-#140000,
-#001111,
-#220022,
-#000000
-
+radial-gradient(
+circle at top,
+#111111,
+#000000 70%
 );
-
-background-size:
-500% 500%;
-
-animation:
-bgMove 2.5s linear infinite;
 
 font-family:
 'Poppins',
@@ -65,21 +54,16 @@ width:700px;
 height:700px;
 
 background:
-
 radial-gradient(
-
 circle,
-
 rgba(255,80,0,0.35),
-
 transparent 70%
-
 );
 
 filter:blur(120px);
 
 animation:
-moveGlow 4s ease-in-out infinite alternate;
+moveGlow 8s ease-in-out infinite alternate;
 
 }
 
@@ -95,30 +79,28 @@ max-width:92%;
 
 padding:45px 35px;
 
-border-radius:32px;
+border-radius:30px;
 
 background:
-rgba(20,20,20,0.82);
+rgba(20,20,20,0.88);
 
 backdrop-filter:
-blur(18px);
+blur(15px);
 
 border:
-2px solid rgba(255,120,0,0.18);
+1px solid rgba(255,120,0,0.18);
 
 box-shadow:
 
-0 0 20px #ff2200,
-0 0 40px #ff6600,
-0 0 60px #ff00ff,
-0 0 90px #00ffff;
+0 0 25px rgba(255,80,0,0.2),
+0 0 60px rgba(255,40,0,0.08);
 
 text-align:center;
 
 z-index:2;
 
 animation:
-ultraGlow 0.8s linear infinite;
+glow 2s linear infinite;
 
 }
 
@@ -126,42 +108,28 @@ ultraGlow 0.8s linear infinite;
 
 .box h1{
 
-font-size:56px;
+font-size:52px;
 
 margin-bottom:40px;
 
 font-weight:900;
 
-letter-spacing:4px;
+letter-spacing:3px;
 
 background:
 linear-gradient(
-
 90deg,
-
-#ff0000,
+#ff3300,
 #ff6600,
-#ffff00,
-#00ffff,
-#ff00ff
-
+#ffaa00
 );
-
-background-size:
-400% 400%;
-
-animation:
-rainbowText 1s linear infinite;
 
 -webkit-background-clip:text;
 
 -webkit-text-fill-color:transparent;
 
 text-shadow:
-
-0 0 10px #ff0000,
-0 0 25px #ff6600,
-0 0 40px #ff00ff;
+0 0 20px rgba(255,80,0,0.5);
 
 }
 
@@ -189,9 +157,7 @@ font-size:20px;
 color:white;
 
 box-shadow:
-
 inset 0 0 10px rgba(255,255,255,0.03),
-
 0 0 18px rgba(255,80,0,0.12);
 
 transition:0.3s;
@@ -203,10 +169,7 @@ transition:0.3s;
 transform:scale(1.02);
 
 box-shadow:
-
-0 0 20px cyan,
-0 0 35px magenta,
-0 0 50px orange;
+0 0 25px rgba(255,120,0,0.35);
 
 }
 
@@ -224,38 +187,24 @@ border-radius:18px;
 
 font-size:22px;
 
-font-weight:800;
+font-weight:700;
 
 cursor:pointer;
 
 background:
 linear-gradient(
-
 90deg,
-
-#ff0000,
+#ff3300,
 #ff6600,
-#ffff00,
-#00ffff,
-#ff00ff
-
+#ffaa00
 );
-
-background-size:
-400% 400%;
-
-animation:
-rainbowText 1s linear infinite;
 
 color:white;
 
-letter-spacing:3px;
+letter-spacing:2px;
 
 box-shadow:
-
-0 0 20px #ff2200,
-0 0 40px #ff6600,
-0 0 70px #ff00ff;
+0 0 25px rgba(255,80,0,0.4);
 
 transition:0.3s;
 
@@ -265,13 +214,10 @@ transition:0.3s;
 
 transform:
 translateY(-4px)
-scale(1.03);
+scale(1.02);
 
 box-shadow:
-
-0 0 30px red,
-0 0 50px cyan,
-0 0 80px magenta;
+0 0 40px rgba(255,120,0,0.7);
 
 }
 
@@ -281,92 +227,6 @@ box-shadow:
 
 color:
 rgba(255,255,255,0.45);
-
-}
-
-/* POPUP */
-
-.popup{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:
-rgba(0,0,0,0.88);
-
-display:flex;
-
-justify-content:center;
-align-items:center;
-
-z-index:9999;
-
-}
-
-.popupbox{
-
-background:
-rgba(20,20,20,0.95);
-
-padding:35px;
-
-border-radius:25px;
-
-width:350px;
-
-max-width:92%;
-
-text-align:center;
-
-border:
-1px solid rgba(255,120,0,0.2);
-
-box-shadow:
-0 0 35px rgba(255,80,0,0.3);
-
-}
-
-.popupbox h2{
-
-margin-bottom:25px;
-
-font-size:32px;
-
-color:#ff8800;
-
-}
-
-.popupbox select{
-
-width:100%;
-
-padding:16px;
-
-border:none;
-
-outline:none;
-
-border-radius:15px;
-
-font-size:18px;
-
-margin-bottom:20px;
-
-background:
-rgba(255,255,255,0.08);
-
-color:white;
-
-}
-
-.popupbox button{
-
-width:100%;
 
 }
 
@@ -386,84 +246,21 @@ translate(120px,80px);
 
 }
 
-@keyframes ultraGlow{
+@keyframes glow{
 
 0%{
-
 box-shadow:
-
-0 0 20px red,
-0 0 40px orange,
-0 0 60px magenta;
-
-}
-
-25%{
-
-box-shadow:
-
-0 0 25px cyan,
-0 0 45px blue,
-0 0 70px magenta;
-
+0 0 20px #ff3300;
 }
 
 50%{
-
 box-shadow:
-
-0 0 25px lime,
-0 0 50px cyan,
-0 0 80px red;
-
-}
-
-75%{
-
-box-shadow:
-
-0 0 30px yellow,
-0 0 60px orange,
-0 0 90px pink;
-
+0 0 40px #ff8800;
 }
 
 100%{
-
 box-shadow:
-
-0 0 20px red,
-0 0 40px orange,
-0 0 60px magenta;
-
-}
-
-}
-
-@keyframes rainbowText{
-
-0%{
-background-position:0% 50%;
-}
-
-100%{
-background-position:100% 50%;
-}
-
-}
-
-@keyframes bgMove{
-
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
+0 0 20px #ff3300;
 }
 
 }
@@ -502,14 +299,10 @@ import { initializeApp }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-
 getFirestore,
 doc,
-getDoc,
-updateDoc
-
+getDoc
 }
-
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -540,6 +333,8 @@ initializeApp(firebaseConfig);
 const db =
 getFirestore(app);
 
+/* LOGIN */
+
 window.login =
 async function(){
 
@@ -562,14 +357,6 @@ alert(
 return;
 
 }
-
-const params =
-new URLSearchParams(
-window.location.search
-);
-
-let currentPage =
-params.get("page");
 
 const userRef =
 doc(db,"users",username);
@@ -596,293 +383,8 @@ return;
 
 }
 
-let access =
-data.pageAccess || [];
-
-let count =
-data.loginCount || 0;
-
-let limit =
-data.loginLimit || 999999;
-
-if(
-count >= limit
-&& limit != 999999
-){
-
 alert(
-"ACCOUNT LOCKED ❌"
-);
-
-return;
-
-}
-
-const now =
-new Date();
-
-const loginData = {
-
-date:
-now.toLocaleDateString(),
-
-time:
-now.toLocaleTimeString()
-
-};
-
-/* DIRECT PAGE LOGIN */
-
-if(currentPage){
-
-if(
-!access.includes(currentPage)
-){
-
-alert("ACCESS DENIED ❌");
-
-return;
-
-}
-
-loginData.page =
-currentPage.toUpperCase();
-
-await updateDoc(userRef,{
-
-loginCount:
-count + 1,
-
-loginHistory:[
-
-...(data.loginHistory || []),
-
-loginData
-
-]
-
-});
-
-if(currentPage == "jee"){
-
-window.location.href =
-"https://gowindasamy.github.io/jee/?access=true";
-
-}
-
-else if(currentPage == "12th"){
-
-window.location.href =
-"https://gowindasamy.github.io/12th/?access=true";
-
-}
-
-else{
-
-window.location.href =
-"https://gowindasamy.github.io/TopperZone/?access=true";
-
-}
-
-return;
-
-}
-
-/* MULTI ACCESS */
-
-if(access.length > 1){
-
-showChoosePopup(
-access,
-userRef,
-data,
-count,
-loginData
-);
-
-}
-
-/* SINGLE ACCESS */
-
-else{
-
-const page =
-access[0];
-
-loginData.page =
-page.toUpperCase();
-
-await updateDoc(userRef,{
-
-loginCount:
-count + 1,
-
-loginHistory:[
-
-...(data.loginHistory || []),
-
-loginData
-
-]
-
-});
-
-if(page == "jee"){
-
-window.location.href =
-"https://gowindasamy.github.io/jee/?access=true";
-
-}
-
-else if(page == "12th"){
-
-window.location.href =
-"https://gowindasamy.github.io/12th/?access=true";
-
-}
-
-else{
-
-window.location.href =
-"https://gowindasamy.github.io/TopperZone/?access=true";
-
-}
-
-}
-
-}
-
-/* CHOOSE POPUP */
-
-window.showChoosePopup =
-function(
-access,
-userRef,
-data,
-count,
-loginData
-){
-
-const popup =
-document.createElement("div");
-
-popup.className =
-"popup";
-
-const box =
-document.createElement("div");
-
-box.className =
-"popupbox";
-
-box.innerHTML =
-
-`
-<h2>
-🌍 Choose Page
-</h2>
-`;
-
-const select =
-document.createElement("select");
-
-if(access.includes("jee")){
-
-select.innerHTML +=
-
-`
-<option value="jee">
-🔥 JEE
-</option>
-`;
-
-}
-
-if(access.includes("12th")){
-
-select.innerHTML +=
-
-`
-<option value="12th">
-📚 12TH
-</option>
-`;
-
-}
-
-if(access.includes("topperzone")){
-
-select.innerHTML +=
-
-`
-<option value="topperzone">
-🚀 TOPPERZONE
-</option>
-`;
-
-}
-
-const btn =
-document.createElement("button");
-
-btn.innerHTML =
-"🚀 OPEN";
-
-btn.onclick =
-async function(){
-
-let selected =
-select.value;
-
-loginData.page =
-selected.toUpperCase();
-
-await updateDoc(userRef,{
-
-loginCount:
-count + 1,
-
-loginHistory:[
-
-...(data.loginHistory || []),
-
-loginData
-
-]
-
-});
-
-if(selected == "jee"){
-
-window.location.href =
-"https://gowindasamy.github.io/jee/?access=true";
-
-}
-
-else if(selected == "12th"){
-
-window.location.href =
-"https://gowindasamy.github.io/12th/?access=true";
-
-}
-
-else{
-
-window.location.href =
-"https://gowindasamy.github.io/TopperZone/?access=true";
-
-}
-
-};
-
-box.appendChild(select);
-
-box.appendChild(btn);
-
-popup.appendChild(box);
-
-document.body.appendChild(
-popup
+"Login Successful ✅"
 );
 
 }
@@ -890,4 +392,4 @@ popup
 </script>
 
 </body>
-  </html>
+</html>
