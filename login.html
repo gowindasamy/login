@@ -23,12 +23,14 @@ box-sizing:border-box;
 
 body{
 
-height:100vh;
+min-height:100vh;
 
 display:flex;
 
 justify-content:center;
 align-items:center;
+
+padding:25px 0;
 
 background:
 linear-gradient(
@@ -52,7 +54,7 @@ font-family:
 'Poppins',
 sans-serif;
 
-overflow:hidden;
+overflow-x:hidden;
 
 }
 
@@ -92,14 +94,16 @@ moveGlow 4s ease-in-out infinite alternate;
 
 position:relative;
 
-width:420px;
+width:92%;
 
-padding:45px 35px;
+max-width:420px;
+
+padding:40px 28px;
 
 border-radius:35px;
 
 background:
-rgba(15,15,15,0.78);
+rgba(15,15,15,0.82);
 
 backdrop-filter:
 blur(18px);
@@ -121,6 +125,8 @@ z-index:2;
 
 animation:
 rainbowGlow 1.2s linear infinite;
+
+margin:auto;
 
 }
 
@@ -326,6 +332,8 @@ align-items:center;
 
 z-index:9999;
 
+padding:20px;
+
 }
 
 .popupbox{
@@ -337,7 +345,8 @@ padding:35px;
 
 border-radius:25px;
 
-width:350px;
+width:100%;
+max-width:350px;
 
 text-align:center;
 
@@ -474,6 +483,46 @@ background-position:0% 50%;
 
 }
 
+/* MOBILE */
+
+@media(max-width:768px){
+
+.box{
+
+width:92%;
+
+padding:35px 22px;
+
+border-radius:28px;
+
+}
+
+.box h1{
+
+font-size:48px;
+
+letter-spacing:3px;
+
+}
+
+.box input{
+
+font-size:18px;
+
+padding:16px 18px;
+
+}
+
+.box button{
+
+font-size:20px;
+
+padding:16px;
+
+}
+
+}
+
 </style>
 
 </head>
@@ -575,8 +624,6 @@ doc(db,"users",username);
 const userSnap =
 await getDoc(userRef);
 
-/* USER NOT FOUND */
-
 if(!userSnap.exists()){
 
 alert("User Not Found ❌");
@@ -587,8 +634,6 @@ return;
 
 const data =
 userSnap.data();
-
-/* WRONG PASSWORD */
 
 if(data.password != password){
 
@@ -607,8 +652,6 @@ data.loginCount || 0;
 let limit =
 data.loginLimit || 999999;
 
-/* LOCK CHECK */
-
 if(
 count >= limit
 && limit != 999999
@@ -622,8 +665,6 @@ return;
 
 }
 
-/* LOGIN DATA */
-
 const now =
 new Date();
 
@@ -636,8 +677,6 @@ time:
 now.toLocaleTimeString()
 
 };
-
-/* DIRECT PAGE LOGIN */
 
 if(currentPage){
 
@@ -669,8 +708,6 @@ loginData
 
 });
 
-/* REDIRECT */
-
 if(currentPage == "jee"){
 
 window.location.href =
@@ -696,8 +733,6 @@ return;
 
 }
 
-/* MULTI ACCESS */
-
 if(access.length > 1){
 
 showChoosePopup(
@@ -709,8 +744,6 @@ loginData
 );
 
 }
-
-/* SINGLE ACCESS */
 
 else{
 
